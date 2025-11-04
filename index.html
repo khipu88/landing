@@ -30,17 +30,24 @@
         body { 
             line-height: 1.6; 
             font-family: var(--font-sans);
-            /* Importante: Se remueve overflow-y: hidden; para permitir el scroll normal */
             background-color: #f9fafb;
+            overflow-y: hidden; /* IMPORTANTE: Oculta el scroll del body */
         }
 
         /* ========================================================== */
-        /* 2. AJUSTE DE SECCIONES (PANTALLA COMPLETA VISUAL, NO FORZADA) */
+        /* 2. CONFIGURACIÓN DE SCROLL-SNAP (PANTALLA COMPLETA) */
         /* ========================================================== */
+        .scroll-container {
+            height: 100vh; /* Ocupa la altura total de la ventana */
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* Aplica el efecto de ajuste forzado */
+            scroll-behavior: smooth; /* Desplazamiento suave */
+        }
         
-        /* Estilos aplicados a todas las secciones que deben verse grandes */
+        /* Estilos aplicados a todas las secciones que deben ajustarse */
         .full-screen-section {
-            min-height: 100vh; /* Ocupa al menos la altura total de la ventana */
+            height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+            scroll-snap-align: start; /* Ajusta la vista al inicio de la sección */
             padding: 40px 20px;
             display: flex; 
             flex-direction: column;
@@ -64,7 +71,8 @@
         header { 
             background: var(--color-base); 
             color: white; 
-            min-height: 100vh; /* Mantiene la apariencia de altura completa */
+            height: 100vh; /* Vuelve a 100vh para el scroll-snap */
+            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -72,9 +80,10 @@
             padding: 40px 20px;
         }
         header img {
-            width: 250px; /* Tamaño del logo */
+            width: 30vw;        
+            max-width: 200px;   
             height: auto;
-            margin: 0 auto 25px auto; 
+            margin: 0 auto 35px auto; 
             display: block; 
         }
         header h1 { 
@@ -116,9 +125,7 @@
             padding: 40px 20px;
         }
 
-        /* ========================================================== */
-        /* 5. TARJETAS Y GRID */
-        /* ========================================================== */
+        /* [El resto del CSS (Tarjetas, Grid, CTA, Footer) permanece sin cambios] */
         .grid-3 { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -133,9 +140,6 @@
             border-top: 4px solid var(--color-acento-primary);
         }
 
-        /* ========================================================== */
-        /* 6. ESTILOS DE LOS CTA (WhatsApp) */
-        /* ========================================================== */
         .cta-header {
             margin-top: 40px;
             display: flex;
@@ -163,7 +167,6 @@
             box-shadow: 0 6px 15px rgba(8, 211, 255, 0.6);
         }
 
-        /* CTA Secundario */
         .cta-header .secondary {
             background: none;
             border: 2px solid var(--color-acento-primary);
@@ -175,7 +178,6 @@
             color: var(--color-base);
         }
 
-        /* CTA Final (Invertido) */
         .section-final-cta .cta-btn {
              background: var(--color-base); 
              color: var(--color-acento-primary);
@@ -185,7 +187,6 @@
              color: var(--color-acento-secondary);
         }
         
-        /* FOOTER */
         footer { 
             background: var(--color-base); 
             color: #9ca3af; 
@@ -194,7 +195,6 @@
             font-size: 0.9rem; 
         }
 
-        /* Media Queries para CTA en móvil */
         @media (min-width: 600px) {
             .cta-header {
                 flex-direction: row;
@@ -206,99 +206,103 @@
 </head>
 <body>
 
-    <header>
-        <div class="content-wrapper">
-            <img src="logocuadrado.png" alt="Logo Khipu 88" class="reveal"> 
-            
-            <h1 class="reveal">¿Tu PC es lenta y te dijeron que ya no sirve?</h1>
-            <p class="reveal">¡Detente! **Extiende su vida útil y ahorra dinero** con la velocidad de Linux. KHIPU 88: Soluciones a domicilio en Trujillo y cursos virtuales.</p>
-            
+    <div class="scroll-container">
+
+        <header>
+            <div class="content-wrapper">
+                <img src="logocuadrado.png" alt="Logo Khipu 88" class="reveal"> 
+                
+                <h1 class="reveal">Recupera la velocidad. Di adiós a la PC lenta.</h1>
+                <p class="reveal">No compres una computadora nueva. **Actualiza y revitaliza tu equipo antiguo con Linux**, un sistema seguro, rápido y 100% libre de virus. ¡Ahorra y extiende su vida útil!</p>
+                
+                <div class="cta-header reveal">
+                    <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🚀 ¡COTIZAR OPTIMIZACIÓN EN TRUJILLO!</a>
+                    <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn secondary">📚 APRENDER LINUX Y OFIMÁTICA FÁCIL</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section-optimizado full-screen-section">
+            <div class="content-wrapper">
+                <h2 class="reveal">⚡️ Nuestro Servicio: PC Rápida, Sin Salir de Casa (Trujillo)</h2>
+                <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Tu equipo solo necesita el software correcto. Nos especializamos en instalar Linux para liberar el potencial de PC's y laptops que ya pensabas desechar.</p>
+                
+                <div class="grid-3">
+                    <div class="card reveal">
+                        <h3>✅ Instalación a Domicilio</h3>
+                        <p>Vamos directamente a tu casa u oficina en Trujillo. Instalamos y configuramos todo sin que te muevas de casa.</p>
+                    </div>
+                    <div class="card reveal"> 
+                        <h3>✅ Velocidad 4X y Estabilidad</h3>
+                        <p>Garantizamos hasta **4 veces más velocidad** en el arranque y tareas básicas. Tendrás una PC estable, confiable y que simplemente funciona.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>✅ Asesoría de Hardware Gratuita</h3>
+                        <p>Si lo necesitas, te indicamos qué componente (SSD o RAM) te dará el mayor rendimiento por el menor costo. ¡Tu inversión es inteligente!</p>
+                    </div>
+                </div>
+
+                <div class="cta-container reveal">
+                    <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn">🚨 ¡MI PC MERECE UNA SEGUNDA OPORTUNIDAD! Clic Aquí.</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-cursos full-screen-section">
+            <div class="content-wrapper">
+                <h2 class="reveal">🎓 Cursos Prácticos de Linux: Domina el Software Libre</h2>
+                <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Deja de pagar costosas licencias. Te enseñamos a usar Linux y el software de ofimática libre (documentos, hojas de cálculo, presentaciones) de forma sencilla, desde cero.</p>
+                
+                <div class="grid-3">
+                    <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
+                        <h3>✅ Clases 100% Enfocadas al Uso Real</h3>
+                        <p>Aprende haciendo. Nuestro contenido es práctico y se enfoca en las habilidades que realmente necesitas para el trabajo y el estudio diario.</p>
+                    </div>
+                    <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
+                        <h3>✅ Formato Virtual y Presencial</h3>
+                        <p>Elige tu ritmo: Clases online flexibles para toda Latinoamérica, o atención personalizada a domicilio si estás en Trujillo.</p>
+                    </div>
+                    <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
+                        <h3>✅ Ahorro Permanente en Licencias</h3>
+                        <p>Te independizas del software de pago. Accede a miles de programas gratuitos y de alta calidad para siempre.</p>
+                    </div>
+                </div>
+
+                <div class="cta-container reveal">
+                    <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn">📚 SOLICITAR PROGRAMA DE CURSOS Y FECHAS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-beneficios full-screen-section">
+            <div class="content-wrapper">
+                <h2 class="reveal">🔥 Preguntas Clave: ¿Por qué es el momento de Linux?</h2>
+                <div class="benefits-qna">
+                    <h3 class="reveal">1. ¿La PC antigua no está "demasiado vieja"?</h3>
+                    <p class="reveal"><strong>No.</strong> La obsolescencia es a menudo un problema de software pesado. Linux consume menos recursos que otros sistemas, dándole un segundo aire de velocidad y eficiencia.</p>
+                    
+                    <h3 class="reveal">2. ¿Qué pasa con los virus y el riesgo de seguridad?</h3>
+                    <p class="reveal"><strong>Duermes tranquilo.</strong> Linux es inherentemente más seguro y mucho menos susceptible a la mayoría de los virus que circulan. **Tu información y tu privacidad están protegidas.**</p>
+                    
+                    <h3 class="reveal">3. ¿Es difícil el cambio si siempre he usado otro sistema?</h3>
+                    <p class="reveal">**No, si tienes a KHIPU 88.** La interfaz moderna es muy intuitiva. Además, con nuestros cursos, te acompañamos paso a paso hasta que domines las herramientas que necesitas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-final-cta">
+            <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¡Listo para el salto a la tecnología libre y rápida!</h2>
             <div class="cta-header reveal">
-                <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🚀 Revive Mi PC ¡A DOMICILIO!</a>
-                <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%E2%80%A6" class="cta-btn secondary">📚 Quiero Aprender Linux Fácil</a>
+                <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🔧 HABLAR CON UN TÉCNICO EN TRUJILLO</a>
+                <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn secondary">📚 CONSULTAR POR CURSOS VIRTUALES</a>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <section class="section-optimizado full-screen-section">
-        <div class="content-wrapper">
-            <h2 class="reveal">🔧 Servicio A DOMICILIO en Trujillo: ¡Optimiza tu Equipo!</h2>
-            <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">**¿Cansado del logo de carga eterno?** La lentitud no es vejez, es el software equivocado. Tu equipo aún tiene potencial y nosotros sabemos cómo desbloquearlo.</p>
-            
-            <div class="grid-3">
-                <div class="card reveal">
-                    <h3>✅ Servicio A DOMICILIO en Trujillo</h3>
-                    <p>Comodidad total. Instalamos y configuramos todo sin que te muevas de casa. El técnico va a ti para revivir tu equipo.</p>
-                </div>
-                <div class="card reveal"> 
-                    <h3>✅ El Combo Infalible (Linux + SSD/RAM)</h3>
-                    <p>Instalamos Linux y te asesoramos sobre el *upgrade* de hardware ideal (SSD y RAM) para maximizar el rendimiento de tu PC.</p>
-                </div>
-                <div class="card reveal">
-                    <h3>✅ Velocidad y Estabilidad Garantizada</h3>
-                    <p>Equipos hasta **4 veces más rápidos** en tareas básicas, 100% seguros y libres de virus molestos. ¡Extiende la vida útil!</p>
-                </div>
-            </div>
+        <footer>
+            © 2025 Khipu 88 Linux Lab — Tecnología accesible, sostenible y libre para todos. Trujillo, Perú.
+        </footer>
 
-            <div class="cta-container reveal">
-                <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn">🚨 ¡COTIZA MI EQUIPO Y AGENDA UNA VISITA A DOMICILIO!</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-cursos full-screen-section">
-        <div class="content-wrapper">
-            <h2 class="reveal">🧠 Cursos Virtuales y Prácticos: Tu Empoderamiento Digital</h2>
-            <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">¿Sientes que la tecnología te supera? Nuestros cursos están diseñados para ti: sencillos, prácticos y enfocados solo en lo que necesitas.</p>
-            
-            <div class="grid-3">
-                <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                    <h3>✅ Modalidad VIRTUAL y Flexible</h3>
-                    <p>Aprende a tu ritmo desde cualquier lugar. También ofrecemos clases **A DOMICILIO** si estás en Trujillo.</p>
-                </div>
-                <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                    <h3>✅ Contenido 100% Práctico</h3>
-                    <p>Olvídate de la teoría aburrida. Domina herramientas de trabajo real (documentos, hojas de cálculo, correo) desde el primer día.</p>
-                </div>
-                <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                    <h3>✅ Libertad y Ahorro</h3>
-                    <p>Te enseñamos a usar software libre, lo que significa **cero costos** en licencias. Empoderamiento digital sostenible para tu bolsillo.</p>
-                </div>
-            </div>
-
-            <div class="cta-container reveal">
-                <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%E2%80%A6" class="cta-btn">📚 ¡QUIERO MI CURSO! Recibe el temario y las fechas.</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-beneficios full-screen-section">
-        <div class="content-wrapper">
-            <h2 class="reveal">🤔 ¿Por qué elegir Linux y KHIPU 88?</h2>
-            <div class="benefits-qna">
-                <h3 class="reveal">1. ¿Es verdad que Linux es más rápido en equipos viejos?</h3>
-                <p class="reveal">¡Totalmente! Tu PC antigua puede encender y ejecutar programas básicos hasta **4 veces más rápido**.</p>
-                
-                <h3 class="reveal">2. ¿Es Linux más seguro contra virus y ataques?</h3>
-                <p class="reveal">Sí, y mucho. Navega, trabaja y estudia con la tranquilidad de estar protegido.</p>
-                
-                <h3 class="reveal">3. ¿Cuánto cuesta el software en Linux?</h3>
-                <p class="reveal">Cero Soles. Elimina el costo de licencias anuales. Es tecnología libre y sostenible.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="section-final-cta">
-        <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¡Da el salto! Te esperamos en WhatsApp.</h2>
-        <div class="cta-header reveal">
-            <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🔧 Servicio a Domicilio</a>
-            <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%E2%80%A6" class="cta-btn secondary">📚 Quiero el Curso Virtual</a>
-        </div>
-    </section>
-
-    <footer>
-        © 2025 Khipu 88 Linux Lab — Tecnología accesible, sostenible y libre para todos. Trujillo, Perú.
-    </footer>
+    </div>
 
     
 <script>
@@ -315,4 +319,3 @@
 
 </body>
 </html>
-
