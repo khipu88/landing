@@ -14,37 +14,26 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <style>
-        /* ========================================================== */
-        /* 1. PALETA DE COLORES Y FUENTES DE KHIPU 88 */
-        /* ========================================================== */
+        /* [El CSS es el mismo de la versión anterior que arregló el scroll] */
         :root {
-            --color-base: #000B36;             /* Azul Oscuro (Fondo Principal) */
-            --color-acento-primary: #00E1D5;   /* Cian Vibrante (CTA Principal) */
-            --color-acento-secondary: #08D3FF; /* Azul Claro */
-            --font-serif: 'DM Serif Text', serif; /* Títulos */
-            --font-sans: 'Quicksand', sans-serif;  /* Cuerpo de Texto */
+            --color-base: #000B36;             
+            --color-acento-primary: #00E1D5;   
+            --color-acento-secondary: #08D3FF; 
+            --font-serif: 'DM Serif Text', serif; 
+            --font-sans: 'Quicksand', sans-serif;  
         }
-
-        /* RESET Y ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             line-height: 1.6; 
             font-family: var(--font-sans);
             background-color: #f9fafb;
-            overflow-y: hidden; /* Oculta el scroll del body */
         }
-
-        /* ========================================================== */
-        /* 2. CONFIGURACIÓN DE SCROLL-SNAP (PANTALLA COMPLETA HÍBRIDA) */
-        /* ========================================================== */
         .scroll-container {
-            height: 100vh; /* Ocupa la altura total de la ventana */
+            height: 100vh; 
             overflow-y: scroll;
-            scroll-snap-type: y mandatory; /* Aplica el ajuste forzado */
+            scroll-snap-type: y mandatory; 
             scroll-behavior: smooth; 
         }
-        
-        /* La clase 'snap-section' es para las diapositivas de 100vh y efecto de salto */
         .snap-section {
             height: 100vh; 
             scroll-snap-align: start; 
@@ -56,38 +45,27 @@
             margin: 0 auto;
             text-align: center;
         }
-
-        /* Contenedor interno para limitar el ancho del contenido */
         .content-wrapper {
-            max-width: 800px; /* Tamaño ligeramente reducido para que quepan 2 tarjetas */
+            max-width: 800px;
             width: 100%;
             margin: auto;
         }
-
-        /* Estilos generales para secciones sin SNAP (Ej. Beneficios) */
         .normal-section {
-            padding: 60px 20px; /* Mismo padding para consistencia */
+            padding: 60px 20px;
             display: flex; 
             flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 0 auto;
             text-align: center;
-            min-height: 50vh; /* Para que se vea grande, pero no fuerza la altura total */
         }
-
-
-        /* ========================================================== */
-        /* 3. HEADER Y TITULARES (SECCIÓN A) */
-        /* ========================================================== */
         header { 
             background: var(--color-base); 
             color: white; 
-            /* Hereda de .snap-section: height: 100vh, scroll-snap-align: start */
         }
         header img {
             width: 30vw;        
-            max-width: 60px;    /* Max 60px para un logo pequeño/discreto */
+            max-width: 60px;    
             height: auto;
             margin: 0 auto 35px auto; 
             display: block; 
@@ -103,8 +81,6 @@
             max-width: 600px;
             margin: 0 auto 30px;
         }
-        
-        /* Estilos de Tipografía General */
         h2 { 
             color: var(--color-base); 
             margin-bottom: 35px; 
@@ -117,10 +93,6 @@
             font-size: 1.4rem; 
             font-family: var(--font-serif);
         }
-
-        /* ========================================================== */
-        /* 4. FONDOS DE SECCIÓN ALTERNADOS */
-        /* ========================================================== */
         .section-optimizado { background: #f9fafb; } 
         .section-cursos { background: #f0f4f8; }      
         .section-beneficios { background: #f9fafb; }  
@@ -130,10 +102,6 @@
             text-align: center; 
             padding: 40px 20px;
         }
-
-        /* ========================================================== */
-        /* 5. TARJETAS Y GRID (Ajustado a 2 elementos) */
-        /* ========================================================== */
         .grid-2 { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
@@ -147,8 +115,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
             border-top: 4px solid var(--color-acento-primary);
         }
-
-        /* [Resto del CSS (CTA y Footer) sin cambios] */
         .cta-header {
             margin-top: 40px;
             display: flex;
@@ -228,21 +194,21 @@
 
         <section class="section-optimizado snap-section">
             <div class="content-wrapper">
-                <h2 class="reveal">⚡️ Nuestro Servicio: PC Rápida, Sin Salir de Casa (Trujillo)</h2>
-                <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Tu equipo solo necesita el software correcto. Hemos reducido el servicio a **dos promesas irrefutables** para asegurar la visibilidad.</p>
+                <h2>⚡️ Nuestro Servicio: PC Rápida, Sin Salir de Casa (Trujillo)</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Tu equipo solo necesita el software correcto. Hemos reducido el servicio a **dos promesas irrefutables** para asegurar la visibilidad.</p>
                 
                 <div class="grid-2">
-                    <div class="card reveal">
+                    <div class="card">
                         <h3>✅ Servicio a Domicilio y Hardware</h3>
                         <p>Instalamos y configuramos Linux en tu casa en Trujillo, y te asesoramos sobre el *upgrade* de hardware ideal (SSD/RAM) para el máximo rendimiento.</p>
                     </div>
-                    <div class="card reveal"> 
+                    <div class="card"> 
                         <h3>✅ Velocidad Garantizada y Cero Virus</h3>
                         <p>Tu equipo será hasta **4 veces más rápido** en el arranque y navegación. Un sistema 100% seguro y libre de virus, extendiendo su vida útil.</p>
                     </div>
                 </div>
 
-                <div class="cta-container reveal">
+                <div class="cta-container">
                     <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn">🚨 ¡MI PC MERECE UNA SEGUNDA OPORTUNIDAD! Clic Aquí.</a>
                 </div>
             </div>
@@ -250,21 +216,21 @@
 
         <section class="section-cursos snap-section">
             <div class="content-wrapper">
-                <h2 class="reveal">🎓 Cursos Prácticos de Linux: Domina el Software Libre</h2>
-                <p class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Te enseñamos a usar Linux y el software de ofimática libre (documentos, hojas de cálculo) de forma sencilla, desde cero, ahorrándote costos de licencias.</p>
+                <h2>🎓 Cursos Prácticos de Linux: Domina el Software Libre</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Te enseñamos a usar Linux y el software de ofimática libre (documentos, hojas de cálculo) de forma sencilla, desde cero, ahorrándote costos de licencias.</p>
                 
                 <div class="grid-2">
-                    <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
+                    <div class="card" style="border-top-color: var(--color-acento-secondary);">
                         <h3>✅ Clases 100% Prácticas y Flexibles</h3>
                         <p>Aprende haciendo. Contenido enfocado al trabajo real en formato virtual para toda LATAM, o presencial si estás en Trujillo.</p>
                     </div>
-                    <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
+                    <div class="card" style="border-top-color: var(--color-acento-secondary);">
                         <h3>✅ Ahorro Permanente y Libertad</h3>
                         <p>Independencia total del software de pago. Accede a miles de programas gratuitos y de alta calidad para siempre. ¡Tecnología libre y sostenible!</p>
                     </div>
                 </div>
 
-                <div class="cta-container reveal">
+                <div class="cta-container">
                     <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn">📚 SOLICITAR PROGRAMA DE CURSOS Y FECHAS</a>
                 </div>
             </div>
@@ -272,23 +238,23 @@
         
     </div> <section class="section-beneficios normal-section">
         <div class="content-wrapper">
-            <h2 class="reveal">🔥 Preguntas Clave: ¿Por qué es el momento de Linux?</h2>
+            <h2>🔥 Preguntas Clave: ¿Por qué es el momento de Linux?</h2>
             <div class="benefits-qna">
-                <h3 class="reveal">1. ¿La PC antigua no está "demasiado vieja"?</h3>
-                <p class="reveal"><strong>No.</strong> La obsolescencia es a menudo un problema de software pesado. Linux consume menos recursos que otros sistemas, dándole un segundo aire de velocidad y eficiencia.</p>
+                <h3>1. ¿La PC antigua no está "demasiado vieja"?</h3>
+                <p><strong>No.</strong> La obsolescencia es a menudo un problema de software pesado. Linux consume menos recursos que otros sistemas, dándole un segundo aire de velocidad y eficiencia.</p>
                 
-                <h3 class="reveal">2. ¿Qué pasa con los virus y el riesgo de seguridad?</h3>
-                <p class="reveal"><strong>Duermes tranquilo.</strong> Linux es inherentemente más seguro y mucho menos susceptible a la mayoría de los virus que circulan. **Tu información y tu privacidad están protegidas.**</p>
+                <h3>2. ¿Qué pasa con los virus y el riesgo de seguridad?</h3>
+                <p><strong>Duermes tranquilo.</strong> Linux es inherentemente más seguro y mucho menos susceptible a la mayoría de los virus que circulan. **Tu información y tu privacidad están protegidas.**</p>
                 
-                <h3 class="reveal">3. ¿Es difícil el cambio si siempre he usado otro sistema?</h3>
-                <p class="reveal">**No, si tienes a KHIPU 88.** La interfaz moderna es muy intuitiva. Además, con nuestros cursos, te acompañamos paso a paso hasta que domines las herramientas que necesitas.</p>
+                <h3>3. ¿Es difícil el cambio si siempre he usado otro sistema?</h3>
+                <p>**No, si tienes a KHIPU 88.** La interfaz moderna es muy intuitiva. Además, con nuestros cursos, te acompañamos paso a paso hasta que domines las herramientas que necesitas.</p>
             </div>
         </div>
     </section>
     
     <section class="section-final-cta">
-        <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¡Listo para el salto a la tecnología libre y rápida!</h2>
-        <div class="cta-header reveal">
+        <h2 style="color: var(--color-base); margin-bottom: 25px;">¡Listo para el salto a la tecnología libre y rápida!</h2>
+        <div class="cta-header">
             <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🔧 HABLAR CON UN TÉCNICO EN TRUJILLO</a>
             <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn secondary">📚 CONSULTAR POR CURSOS VIRTUALES</a>
         </div>
@@ -300,7 +266,7 @@
 
     
 <script>
-        // Inicialización de ScrollReveal
+        // Mantenemos la inicialización de ScrollReveal, pero ya no afecta a casi nada.
         ScrollReveal().reveal('.reveal', { 
             delay: 200,
             distance: '50px',
