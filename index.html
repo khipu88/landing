@@ -173,17 +173,17 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG INVERTIDAS Y POSICIONADAS EN TOP (CORREGIDO EL FILL) */
+        /* 5. ONDAS SVG: POSICIÓN ABAJO (CORRECCIÓN FINAL) */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            top: -1px; /* Anclado a la parte superior de la sección */
+            bottom: -1px; /* Vuelve a estar anclado a la parte inferior de la sección actual */
             left: 0;
             width: 100%;
             height: 80px; 
             overflow: hidden; 
             line-height: 0; 
-            transform: rotate(180deg); /* Invierte la onda para que la curva mire hacia arriba */
+            /* Se elimina el transform: rotate(180deg); */
         }
         .wave-separator svg {
             position: relative;
@@ -192,22 +192,22 @@
             height: 80px; 
         }
         
-        /* Colores de las ondas: DEBE COINCIDIR CON EL COLOR DEL FONDO DE LA SECCIÓN PREVIA */
-        /* Onda que viene de #inicio (Fondo: var(--color-base) #000B36) */
-        .wave-from-header .shape-fill { 
-            fill: var(--color-base); 
-        }           
-        /* Onda que viene de #servicio (Fondo: #f9fafb) */
-        .wave-from-optimizado .shape-fill { 
+        /* Colores de las ondas: DEBE COINCIDIR CON EL COLOR DEL FONDO DE LA SECCIÓN SIGUIENTE */
+        /* Onda para #inicio, debe tener el color de #servicio (#f9fafb) */
+        .wave-to-optimizado .shape-fill { 
             fill: #f9fafb; 
         }           
-        /* Onda que viene de #cursos (Fondo: #f0f4f8) */
-        .wave-from-cursos .shape-fill { 
+        /* Onda para #servicio, debe tener el color de #cursos (#f0f4f8) */
+        .wave-to-cursos .shape-fill { 
             fill: #f0f4f8; 
-        }              
-        /* Onda que viene de #preguntas (Fondo: #f9fafb) */
-        .wave-from-beneficios .shape-fill { 
+        }           
+        /* Onda para #cursos, debe tener el color de #preguntas (#f9fafb) */
+        .wave-to-beneficios .shape-fill { 
             fill: #f9fafb; 
+        }              
+        /* Onda para #preguntas, debe tener el color de #contacto (var(--color-acento-primary)) */
+        .wave-to-contacto .shape-fill { 
+            fill: var(--color-acento-primary); 
         }           
 
 
@@ -249,14 +249,14 @@
                     <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn secondary reveal">📚 APRENDER LINUX Y OFIMÁTICA FÁCIL</a>
                 </div>
             </div>
-            </header>
-
-        <section id="servicio" class="snap-section section-optimizado">
-            <div class="wave-separator wave-from-header"> 
+            <div class="wave-separator wave-to-optimizado"> 
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
             </div>
+        </header>
+
+        <section id="servicio" class="snap-section section-optimizado">
             <div class="content-wrapper">
                 <h2 class="reveal">⚡️ Nuestro Servicio: PC Rápida, Sin Salir de Casa (Trujillo)</h2>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal">Tu equipo solo necesita el software correcto. Hemos reducido el servicio a **dos promesas irrefutables** para asegurar la visibilidad.</p>
@@ -276,14 +276,14 @@
                     <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn reveal">🚨 ¡MI PC MERECE UNA SEGUNDA OPORTUNIDAD! Clic Aquí.</a>
                 </div>
             </div>
-        </section>
-
-        <section id="cursos" class="snap-section section-cursos">
-            <div class="wave-separator wave-from-optimizado">
+            <div class="wave-separator wave-to-cursos">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
             </div>
+        </section>
+
+        <section id="cursos" class="snap-section section-cursos">
             <div class="content-wrapper">
                 <h2 class="reveal">🎓 Cursos Prácticos de Linux: Domina el Software Libre</h2>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal">Te enseñamos a usar Linux y el software de ofimática libre (documentos, hojas de cálculo) de forma sencilla, desde cero, ahorrándote costos de licencias.</p>
@@ -303,14 +303,14 @@
                     <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20m%C3%A1s%2E" class="cta-btn reveal">📚 SOLICITAR PROGRAMA DE CURSOS Y FECHAS</a>
                 </div>
             </div>
-        </section>
-        
-        <section id="preguntas" class="snap-section section-beneficios">
-            <div class="wave-separator wave-from-cursos">
+            <div class="wave-separator wave-to-beneficios">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
             </div>
+        </section>
+        
+        <section id="preguntas" class="snap-section section-beneficios">
             <div class="content-wrapper">
                 <h2 class="reveal">🔥 Preguntas Clave: ¿Por qué es el momento de Linux?</h2>
                 <div class="benefits-qna">
@@ -324,14 +324,14 @@
                     <p class="reveal">**No, si tienes a KHIPU 88.** La interfaz moderna es muy intuitiva. Además, con nuestros cursos, te acompañamos paso a paso hasta que domines las herramientas que necesitas.</p>
                 </div>
             </div>
-        </section>
-        
-        <section id="contacto" class="snap-section section-final-cta">
-            <div class="wave-separator wave-from-beneficios">
+            <div class="wave-separator wave-to-contacto">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
             </div>
+        </section>
+        
+        <section id="contacto" class="snap-section section-final-cta">
             <div class="content-wrapper">
                 <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¡Listo para el salto a la tecnología libre y rápida!</h2>
                 <div class="cta-header">
@@ -411,4 +411,3 @@
 
 </body>
 </html>
-
