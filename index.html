@@ -3,56 +3,60 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KHIPU 88 | Revive tu PC con Linux y Aprende Fácil</title>
+    <title>KHIPU 88 | Revive tu PC con Linux, Ahorra y Aprende Fácil</title>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <meta property="og:title" content="KHIPU 88: Soluciones Linux en Trujillo y Cursos Virtuales" />
-    <meta property="og:description" content="Extiende la vida útil de tu PC antigua y ahorra dinero. Optimización a domicilio en Trujillo y cursos de Linux/Ofimática." />
-    <meta property="og:image" content="https://dreamina.capcut.com/es-es/resource/add-logo-to-picture" />
+    <meta property="og:title" content="KHIPU 88: Optimización Linux a Domicilio en Trujillo y Cursos Virtuales" />
+    <meta property="og:description" content="Extiende la vida útil de tu PC antigua y ahorra dinero. Soluciones rápidas, seguras y sostenibles." />
     
-    
-<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <style>
-        /* Paleta de Colores KHIPU 88 */
+        /* ========================================================== */
+        /* 1. PALETA DE COLORES Y FUENTES DE KHIPU 88 */
+        /* ========================================================== */
         :root {
-            --color-base: #000B36;
-            --color-acento-primary: #00E1D5;
-            --color-acento-secondary: #08D3FF;
-            --font-serif: 'DM Serif Text', serif;
-            --font-sans: 'Quicksand', sans-serif;
+            --color-base: #000B36;             /* Azul Oscuro (Fondo Principal) */
+            --color-acento-primary: #00E1D5;   /* Cian Vibrante (CTA Principal) */
+            --color-acento-secondary: #08D3FF; /* Azul Claro */
+            --font-serif: 'DM Serif Text', serif; /* Títulos */
+            --font-sans: 'Quicksand', sans-serif;  /* Cuerpo de Texto */
         }
 
+        /* RESET Y ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             line-height: 1.6; 
             font-family: var(--font-sans);
-            /* Importante: Ocultar el scroll por defecto si no queremos barras dobles */
-            overflow-y: hidden; 
+            overflow-y: hidden; /* Oculta el scroll del body para que lo controle el contenedor */
+            background-color: #f9fafb;
         }
 
-        /* CONFIGURACIÓN DE SCROLL-SNAP */
+        /* ========================================================== */
+        /* 2. CONFIGURACIÓN DE SCROLL-SNAP (PANTALLA COMPLETA) */
+        /* ========================================================== */
         .scroll-container {
-            height: 100vh;
+            height: 100vh; /* Ocupa la altura total de la ventana */
             overflow-y: scroll;
-            scroll-snap-type: y mandatory; /* Aplica el efecto de snap verticalmente de forma obligatoria */
+            scroll-snap-type: y mandatory; /* Aplica el efecto de ajuste forzado */
+            scroll-behavior: smooth; /* Desplazamiento suave */
         }
         
+        /* Estilos aplicados a todas las secciones que deben ajustarse */
         .full-screen-section {
-            height: 100vh; /* Cada sección ocupa el 100% de la altura visible */
-            scroll-snap-align: start; /* El navegador se ajusta al inicio de cada sección */
+            height: 100vh; 
+            scroll-snap-align: start; /* Ajusta la vista al inicio de la sección */
             padding: 40px 20px;
-            display: flex; /* Usamos flex para centrar el contenido verticalmente si es posible */
+            display: flex; 
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            max-width: none; /* Deshabilitamos el max-width del section genérico */
-            margin: 0;
+            margin: 0 auto;
             text-align: center;
         }
         
-        /* Estilos de Contenido (Aseguramos que el contenido no se estire) */
+        /* Contenedor interno para limitar el ancho del contenido */
         .content-wrapper {
             max-width: 900px; 
             width: 100%;
@@ -60,33 +64,132 @@
         }
 
 
-        /* HEADER (Ahora actúa como la primera sección de full-screen) */
+        /* ========================================================== */
+        /* 3. HEADER Y TITULARES (SECCIÓN A) */
+        /* ========================================================== */
         header { 
             background: var(--color-base); 
             color: white; 
-            text-align: center; 
-            padding: 60px 20px 80px; 
-            height: 100vh; /* Le damos la altura completa */
+            height: 100vh; 
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+        }
+        header img {
+            width: 90px; /* AJUSTE DEL TAMAÑO DEL LOGO */
+            height: auto;
+            margin-bottom: 25px;
+        }
+        header h1 { 
+            font-size: clamp(2rem, 5vw, 3rem); 
+            margin-bottom: 15px; 
+            font-family: var(--font-serif);
+        }
+        header p { 
+            font-size: clamp(1rem, 2vw, 1.2rem); 
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Estilos de Tipografía General */
+        h2 { 
+            color: var(--color-base); 
+            margin-bottom: 35px; 
+            font-size: clamp(1.8rem, 4vw, 2.4rem); 
+            font-family: var(--font-serif);
+        }
+        h3 { 
+            color: var(--color-base); 
+            margin-top: 15px; 
+            font-size: 1.4rem; 
+            font-family: var(--font-serif);
         }
 
-        /* OTROS ESTILOS YA DEFINIDOS */
-        
-        .section-optimizado { background: #f9fafb; color: #1f2937; }
-        .section-cursos { background: #f0f4f8; color: #1f2937; }
-        .section-beneficios { background: #f9fafb; color: #1f2937; } 
+        /* ========================================================== */
+        /* 4. FONDOS DE SECCIÓN ALTERNADOS */
+        /* ========================================================== */
+        .section-optimizado { background: #f9fafb; } /* Blanco Suave */
+        .section-cursos { background: #f0f4f8; }      /* Gris Claro Azulado */
+        .section-beneficios { background: #f9fafb; }  /* Blanco Suave */
         .section-final-cta { 
-            background: var(--color-acento-primary); 
+            background: var(--color-acento-primary); /* Cian Vibrante (Impacto) */
             color: var(--color-base); 
             text-align: center; 
-            /* Quitamos height: 100vh para que sea el CTA final y luego el footer */
-        } 
-        
-        /* ... (Dejar el resto de los estilos h2, h3, card, cta, grid-3, etc. sin cambios) ... */
+            padding: 40px 20px;
+        }
 
+        /* ========================================================== */
+        /* 5. TARJETAS Y GRID */
+        /* ========================================================== */
+        .grid-3 { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            border-top: 4px solid var(--color-acento-primary);
+        }
+
+        /* ========================================================== */
+        /* 6. ESTILOS DE LOS CTA (WhatsApp) */
+        /* ========================================================== */
+        .cta-header {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--color-acento-primary); 
+            color: var(--color-base); 
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 225, 213, 0.4);
+        }
+        .cta-btn:hover { 
+            background: var(--color-acento-secondary);
+            transform: scale(1.05);
+            color: white;
+            box-shadow: 0 6px 15px rgba(8, 211, 255, 0.6);
+        }
+
+        /* CTA Secundario */
+        .cta-header .secondary {
+            background: none;
+            border: 2px solid var(--color-acento-primary);
+            color: var(--color-acento-primary);
+            box-shadow: none;
+        }
+        .cta-header .secondary:hover {
+            background: var(--color-acento-primary);
+            color: var(--color-base);
+        }
+
+        /* CTA Final (Invertido) */
+        .section-final-cta .cta-btn {
+             background: var(--color-base); 
+             color: var(--color-acento-primary);
+        }
+        .section-final-cta .cta-btn:hover {
+             background: #111827; /* Gris más oscuro */
+             color: var(--color-acento-secondary);
+        }
+        
         /* FOOTER */
         footer { 
             background: var(--color-base); 
@@ -96,6 +199,14 @@
             font-size: 0.9rem; 
         }
 
+        /* Media Queries para CTA en móvil */
+        @media (min-width: 600px) {
+            .cta-header {
+                flex-direction: row;
+                justify-content: center;
+                gap: 25px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,7 +215,7 @@
 
         <header>
             <div class="content-wrapper">
-                <img src="logocuadrado.png" alt="Logo Khipu 88"> 
+                <img src="logocuadrado.png" alt="Logo Khipu 88" class="reveal"> 
                 
                 <h1 class="reveal">¿Tu PC es lenta y te dijeron que ya no sirve?</h1>
                 <p class="reveal">¡Detente! **Extiende su vida útil y ahorra dinero** con la velocidad de Linux. KHIPU 88: Soluciones a domicilio en Trujillo y cursos virtuales.</p>
@@ -123,11 +234,17 @@
                 
                 <div class="grid-3">
                     <div class="card reveal">
-                        </div>
+                        <h3>✅ Servicio A DOMICILIO en Trujillo</h3>
+                        <p>Comodidad total. Instalamos y configuramos todo sin que te muevas de casa. El técnico va a ti para revivir tu equipo.</p>
+                    </div>
                     <div class="card reveal"> 
-                        </div>
+                        <h3>✅ El Combo Infalible (Linux + SSD/RAM)</h3>
+                        <p>Instalamos Linux y te asesoramos sobre el *upgrade* de hardware ideal (SSD y RAM) para maximizar el rendimiento de tu PC.</p>
+                    </div>
                     <div class="card reveal">
-                        </div>
+                        <h3>✅ Velocidad y Estabilidad Garantizada</h3>
+                        <p>Equipos hasta **4 veces más rápidos** en tareas básicas, 100% seguros y libres de virus molestos. ¡Extiende la vida útil!</p>
+                    </div>
                 </div>
 
                 <div class="cta-container reveal">
@@ -143,11 +260,17 @@
                 
                 <div class="grid-3">
                     <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                        </div>
+                        <h3>✅ Modalidad VIRTUAL y Flexible</h3>
+                        <p>Aprende a tu ritmo desde cualquier lugar. También ofrecemos clases **A DOMICILIO** si estás en Trujillo.</p>
+                    </div>
                     <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                        </div>
+                        <h3>✅ Contenido 100% Práctico</h3>
+                        <p>Olvídate de la teoría aburrida. Domina herramientas de trabajo real (documentos, hojas de cálculo, correo) desde el primer día.</p>
+                    </div>
                     <div class="card reveal" style="border-top-color: var(--color-acento-secondary);">
-                        </div>
+                        <h3>✅ Libertad y Ahorro</h3>
+                        <p>Te enseñamos a usar software libre, lo que significa **cero costos** en licencias. Empoderamiento digital sostenible para tu bolsillo.</p>
+                    </div>
                 </div>
 
                 <div class="cta-container reveal">
@@ -167,16 +290,16 @@
                     <p class="reveal">Sí, y mucho. Navega, trabaja y estudia con la tranquilidad de estar protegido.</p>
                     
                     <h3 class="reveal">3. ¿Cuánto cuesta el software en Linux?</h3>
-                    <p class="reveal">Cero Soles. Elimina el costo de licencias anuales.</p>
+                    <p class="reveal">Cero Soles. Elimina el costo de licencias anuales. Es tecnología libre y sostenible.</p>
                 </div>
             </div>
         </section>
         
         <section class="section-final-cta">
-            <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¿Listo para el cambio? Te esperamos en WhatsApp.</h2>
+            <h2 style="color: var(--color-base); margin-bottom: 25px;" class="reveal">¡Da el salto! Te esperamos en WhatsApp.</h2>
             <div class="cta-header reveal">
-                <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary" style="background: var(--color-base); color: var(--color-acento-primary);">🔧 Servicio a Domicilio</a>
-                <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20más%2E" class="cta-btn secondary" style="background: var(--color-base); color: var(--color-acento-primary); border: none;">📚 Quiero el Curso Virtual</a>
+                <a href="https://wa.me/51961468282?text=Hola%2C%20quiero%20cotizar%20la%20optimización%20a%20domicilio%20en%20Trujillo%2E" class="cta-btn primary">🔧 Servicio a Domicilio</a>
+                <a href="https://wa.me/51961468282?text=Hola%2C%20me%20interesan%20los%20cursos%20virtuales%20de%20Linux%20y%20ofimática%2E%20Quiero%20saber%20más%2E" class="cta-btn secondary">📚 Quiero el Curso Virtual</a>
             </div>
         </section>
 
@@ -188,14 +311,14 @@
 
     
 <script>
-        // Configuración básica de ScrollReveal
+        // Inicialización de ScrollReveal
         ScrollReveal().reveal('.reveal', { 
             delay: 200,
             distance: '50px',
             origin: 'bottom',
             interval: 100,
             easing: 'ease-in-out',
-            reset: false
+            reset: false 
         });
 </script>
 
