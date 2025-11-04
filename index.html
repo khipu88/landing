@@ -173,17 +173,17 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG: POSICIÓN ABAJO (CORRECCIÓN FINAL) */
+        /* 5. ONDAS SVG: POSICIÓN ABAJO (AJUSTE FINAL Y SEGURO) */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            bottom: -1px; /* Vuelve a estar anclado a la parte inferior de la sección actual */
+            bottom: 0; /* ANCLADO AL BORDE INFERIOR (EL AJUSTE CLAVE) */
             left: 0;
             width: 100%;
             height: 80px; 
             overflow: hidden; 
             line-height: 0; 
-            /* Se elimina el transform: rotate(180deg); */
+            z-index: 5; /* Asegura que la onda esté encima del contenido */
         }
         .wave-separator svg {
             position: relative;
@@ -193,22 +193,10 @@
         }
         
         /* Colores de las ondas: DEBE COINCIDIR CON EL COLOR DEL FONDO DE LA SECCIÓN SIGUIENTE */
-        /* Onda para #inicio, debe tener el color de #servicio (#f9fafb) */
-        .wave-to-optimizado .shape-fill { 
-            fill: #f9fafb; 
-        }           
-        /* Onda para #servicio, debe tener el color de #cursos (#f0f4f8) */
-        .wave-to-cursos .shape-fill { 
-            fill: #f0f4f8; 
-        }           
-        /* Onda para #cursos, debe tener el color de #preguntas (#f9fafb) */
-        .wave-to-beneficios .shape-fill { 
-            fill: #f9fafb; 
-        }              
-        /* Onda para #preguntas, debe tener el color de #contacto (var(--color-acento-primary)) */
-        .wave-to-contacto .shape-fill { 
-            fill: var(--color-acento-primary); 
-        }           
+        .wave-to-optimizado .shape-fill { fill: #f9fafb; }           
+        .wave-to-cursos .shape-fill { fill: #f0f4f8; }           
+        .wave-to-beneficios .shape-fill { fill: #f9fafb; }              
+        .wave-to-contacto .shape-fill { fill: var(--color-acento-primary); }           
 
 
         /* [Resto del CSS (CTA, Cards, Footer) sin cambios] */
