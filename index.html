@@ -49,6 +49,7 @@
         .snap-section {
             height: 100vh; 
             scroll-snap-align: start; 
+            /* Se mantiene el padding-bottom en 80px, pero la onda se proyecta fuera con bottom: -80px; */
             padding: 40px 20px 80px; 
             display: flex; 
             flex-direction: column;
@@ -173,17 +174,17 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG: POSICIÓN ABAJO (AJUSTE FINAL Y SEGURO) */
+        /* 5. ONDAS SVG: CORRECCIÓN FINAL DE POSICIÓN Y FLUJO */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            bottom: 0; /* ANCLADO AL BORDE INFERIOR (EL AJUSTE CLAVE) */
+            bottom: -80px; /* Desplaza la onda completamente fuera de la sección */
             left: 0;
             width: 100%;
             height: 80px; 
             overflow: hidden; 
             line-height: 0; 
-            z-index: 5; /* Asegura que la onda esté encima del contenido */
+            z-index: 100; /* Alto z-index para asegurar que tape el fondo de la sección 2 */
         }
         .wave-separator svg {
             position: relative;
