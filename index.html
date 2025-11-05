@@ -45,18 +45,18 @@
             overflow-y: scroll;
             scroll-snap-type: y mandatory; 
             scroll-behavior: smooth; 
-            /* CORRECCIÓN CLAVE 1: Deja espacio de 80px en la parte superior al hacer snap */
+            /* Esta es la propiedad clave: Le dice al scroll-snap que deje 80px en la parte superior */
             scroll-padding-top: var(--wave-height); 
         }
         
         .snap-section {
             height: 100vh; 
             scroll-snap-align: start; 
-            /* VUELVE AL PADDING ORIGINAL DE CENTRADO */
-            padding: 40px 20px 80px; 
+            /* Padding general para la sección, el contenido se empujará con el content-wrapper */
+            padding: 0 20px 80px; /* Quitamos el padding-top de aquí para que solo lo maneje el content-wrapper */
             display: flex; 
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centrar el contenido verticalmente */
             align-items: center;
             margin: 0 auto;
             text-align: center;
@@ -64,13 +64,14 @@
             overflow: hidden; 
         }
 
-        /* AJUSTE PARA EL HEADER (SOLO CENTRADO) */
+        /* AJUSTE PARA EL HEADER (LA PRIMERA SECCIÓN SIN ONDA ARRIBA) */
         header { 
             background: var(--color-base); 
             color: white; 
-            padding-top: 40px; 
+            /* El header no tiene onda encima, así que puede tener su propio padding-top */
+            padding-top: 40px; /* O el valor que prefieras para el top del header */
             padding-bottom: 80px;
-            justify-content: center;
+            justify-content: center; 
         }
 
         /* Contenedor interno para limitar el ancho del contenido */
@@ -78,15 +79,17 @@
             max-width: 800px;
             width: 100%;
             margin: auto;
+            /* Por defecto, un padding top de 40px para el contenido de las secciones */
+            padding-top: 40px; 
         }
 
-        /* CORRECCIÓN CLAVE 4: Ajustamos el padding del contenido SOLO si tiene una onda en su top */
+        /* Aplicamos padding-top EXTRA solo a los content-wrapper de secciones con onda */
+        /* Esto empuja el contenido para que la onda de 80px en top:0 no lo tape */
         #servicio .content-wrapper,
         #cursos .content-wrapper,
         #preguntas .content-wrapper,
         #contacto .content-wrapper {
-            /* Este padding mueve el contenido por debajo de la onda de 80px */
-            padding-top: var(--wave-height); 
+            padding-top: calc(40px + var(--wave-height)); /* 40px base + 80px de la onda */
         }
 
 
@@ -126,11 +129,11 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG INVERTIDAS Y POSICIONADAS EN TOP DE LA SECCIÓN SIGUIENTE */
+        /* 5. ONDAS SVG EN TOP DE LA SECCIÓN INFERIOR Y GIRADAS */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            top: 0; /* ANCLADO AL BORDE SUPERIOR DE LA SECCIÓN INFERIOR */
+            top: 0; /* ANCLADO AL BORDE SUPERIOR DE LA SECCIÓN ACTUAL */
             left: 0;
             width: 100%;
             height: var(--wave-height); 
@@ -315,7 +318,9 @@
         function updateNav() {
             let currentSection = '';
             // Ajustamos el umbral para tener en cuenta el scroll-padding-top
-            const scrollThreshold = scrollContainer.scrollTop + 100; 
+            // Detecta la sección cuando su contenido visible (después de la onda) entra en juego.
+            const waveHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--wave-height'));
+            const scrollThreshold = scrollContainer.scrollTop + waveHeight + 20; // Onda + un pequeño margen para mayor precisión
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
