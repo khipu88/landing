@@ -56,7 +56,7 @@
             overflow: hidden; 
             /* Estilos base para las tramas de fondo */
             background-repeat: repeat;
-            background-blend-mode: overlay; /* Mantiene el efecto de mezcla sutil (difuminado) */
+            background-blend-mode: overlay; 
         }
         
         .content-wrapper { max-width: 1000px; width: 100%; margin: auto; position: relative; z-index: 2; }
@@ -98,64 +98,79 @@
         header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } 
         header p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: #d1d5db; max-width: 750px; margin: 0 auto 30px; }
         
-        h2 { color: var(--color-base); margin-bottom: 35px; font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-serif); line-height: 1.2; }
+        h2 { color: var(--color-base); margin-bottom: 10px; font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-serif); line-height: 1.2; }
         h3 { color: var(--color-base); margin-top: 15px; font-size: 1.4rem; font-family: var(--font-serif); }
 
+        /* NUEVO ESTILO: Subtítulos de Secciones 2, 3 y 4 */
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #4b5563; /* Gris oscuro para destacar del texto normal */
+            max-width: 750px; 
+            margin: 0 auto 40px; /* Espacio inferior para separarlo del grid */
+        }
         
         /* ========================================================== */
-        /* FONDOS DE SECCIÓN CON TRAMAS DIFERENTES Y DIFUMINADAS */
+        /* FONDOS DE SECCIÓN CON TRAMAS GEOMÉTRICAS Y VISIBLES */
         /* ========================================================== */
         
         .section-header-bg { /* Selector vacío */ } 
         
-        /* TRAMA 1: REJILLA DE PUNTOS DIFUMINADOS (Sección Servicios) */
+        /* TRAMA 1: RED NEURONAL / REJILLA MESH (Sección Servicios) */
         .section-servicio { 
-            background-color: #f9fafb; /* Color de fondo base */
+            background-color: #f9fafb; 
             background-image: 
-                radial-gradient(circle at center, 
-                                rgba(0, 0, 0, 0.2) 2px, 
-                                rgba(0, 0, 0, 0.1) 8px,  
-                                transparent 10px);      
+                /* Líneas verticales (alta opacidad) */
+                linear-gradient(to right, rgba(0, 0, 0, 0.35) 2px, transparent 2px),
+                /* Líneas horizontales (alta opacidad) */
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 2px, transparent 2px);
             
             background-size: 40px 40px; 
+            background-blend-mode: overlay;
         } 
         
-        /* TRAMA 2: LÍNEAS DIAGONALES FINAS (Sección Talleres) */
+        /* TRAMA 2: LÍNEAS DIAGONALES (Sección Talleres) */
         .section-talleres { 
-            background-color: #eef2f7; /* Tonalidad diferente de fondo */
+            background-color: #eef2f7; 
             background-image: 
                 repeating-linear-gradient(
-                    -45deg, /* Ángulo diagonal */
-                    rgba(0, 0, 0, 0.15) 0px, 
-                    rgba(0, 0, 0, 0.15) 1px,
-                    transparent 1px,
-                    transparent 15px /* Distancia de repetición de la línea */
+                    45deg, 
+                    rgba(0, 0, 0, 0.40) 0px, /* Líneas más gruesas y opacas */
+                    rgba(0, 0, 0, 0.40) 2px,
+                    transparent 2px,
+                    transparent 20px 
                 );
-            background-size: 15px 15px;
+            background-size: 20px 20px;
+            background-blend-mode: overlay;
         }  
         
-        /* TRAMA 3: REJILLA DE CUADRADOS SUTILES (Sección Por Qué) */
+        /* TRAMA 3: PATRÓN HEXAGONAL / HONEYCOMB (Sección Por Qué) */
         .section-beneficios { 
-            background-color: #f9fafb; /* Color de fondo base */
+            background-color: #f9fafb; 
+            /* Esta es una trama compleja de hexágonos en CSS puro */
             background-image: 
-                linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+                radial-gradient(circle at 100% 50%, rgba(0, 0, 0, 0.4) 1px, transparent 1.5px),
+                radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0.4) 1px, transparent 1.5px),
+                linear-gradient(rgba(0, 0, 0, 0.4) 1px, transparent 1.5px),
+                linear-gradient(60deg, rgba(0, 0, 0, 0.4) 1px, transparent 1.5px),
+                linear-gradient(120deg, rgba(0, 0, 0, 0.4) 1px, transparent 1.5px);
             
-            background-size: 20px 20px; /* Tamaño del cuadrado */
+            background-size: 25px 40px; 
+            background-position: 0 0, 25px 20px, 0 0, 0 0, 0 0;
+            background-blend-mode: overlay;
         }  
         
-        /* TRAMA 4: PUNTOS DIFUMINADOS OSCUROS (Sección CTA Final) */
+        /* TRAMA 4: REJILLA DE PUNTOS GRUESOS (Sección CTA Final) */
         .section-final-cta { 
-            background-color: var(--color-acento-primary); /* Color base de acento */
+            background-color: var(--color-acento-primary); 
             color: var(--color-base); 
             padding: 80px 20px; 
+            /* Puntos más grandes y oscuros */
             background-image: 
                 radial-gradient(circle at center, 
-                                rgba(0, 11, 54, 0.3) 2px, 
-                                rgba(0, 11, 54, 0.2) 8px, 
-                                transparent 10px); 
+                                rgba(0, 11, 54, 0.45) 3px, 
+                                transparent 4px); 
             
-            background-size: 40px 40px;
+            background-size: 30px 30px;
             background-blend-mode: overlay;
         }
 
@@ -300,21 +315,21 @@
 
         <section id="servicio" class="snap-section section-servicio">
             <div class="content-wrapper">
-                <h2 class="reveal">¡Optimizamos tu compu! <br> Hacemos que tu equipo siga siendo útil.</h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal"></p>
+                <h2 class="reveal">¡Optimizamos tu compu!</h2>
+                <p class="subtitle reveal">Hacemos que tu equipo siga siendo útil.</p>
                 
                 <div class="grid-3-cards">
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-rocket"></i>
                         <h3>Velocidad extrema sin costo alto</h3>
                         <p>Linux es ligero y utiliza menos recursos. Al combinarlo con un **SSD o RAM** recomendado, tu PC volará sin gastar en una nueva.</p>
                     </div>
-                    <div class="card reveal"> 
+                    <div class="card reveal-stagger"> 
                         <i class="card-icon fas fa-recycle"></i>
                         <h3>Ahorro genuino y reciclaje inteligente</h3>
                         <p>Alargas la vida útil de tu hardware por años, contribuyes al planeta y ahorras dinero que puedes invertir en tu familia.</p>
                     </div>
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-shield-alt"></i>
                         <h3>Máxima seguridad y privacidad garantizada</h3>
                         <p>Olvídate de los antivirus caros y las amenazas constantes. Linux es robusto y te da tranquilidad para navegar y trabajar.</p>
@@ -327,21 +342,21 @@
 
         <section id="talleres" class="snap-section section-talleres">
             <div class="content-wrapper">
-                <h2 class="reveal">Te preparamos con nuestros talleres. <br> Da el salto a lo digital sin miedo: cursos para todos.</h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal"></p>
+                <h2 class="reveal">Te preparamos con nuestros talleres.</h2>
+                <p class="subtitle reveal">Da el salto a lo digital sin miedo: cursos para todos.</p>
                 
                 <div class="grid-3-cards">
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-user-graduate"></i>
                         <h3>Aprende de 0, sin tecnicismos</h3>
                         <p>Nuestro método está diseñado para personas de todas las edades que nunca han usado Linux (o una PC). Sencillez garantizada.</p>
                     </div>
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-file-invoice"></i>
                         <h3>Dominio de ofimática e internet</h3>
                         <p>Te enseñamos a usar herramientas gratuitas (LibreOffice) y a navegar seguro. Libérate de costosas licencias.</p>
                     </div>
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-laptop-house"></i>
                         <h3>Modalidad virtual o a domicilio</h3>
                         <p>¡Aprendes desde donde estés! Cursos online flexibles para todo el mundo, o presenciales si estás en Trujillo.</p>
@@ -355,20 +370,20 @@
         <section id="porque" class="snap-section section-beneficios">
             <div class="content-wrapper">
                 <h2 class="reveal">¿Por qué elegir linux?</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;" class="reveal">Muchas personas creen que Linux es solo para expertos. ¡Te demostramos lo contrario! Linux es una puerta a la libertad digital, el ahorro y un rendimiento que tu hardware agradecerá.</p>
+                <p class="subtitle reveal">Muchas personas creen que Linux es solo para expertos. ¡Te demostramos lo contrario!</p>
                 
                 <div class="grid-3-cards">
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-hand-holding-usd"></i>
                         <h3>Cero costo en licencias y software</h3>
                         <p>Linux es Software Libre. Nunca pagarás por el sistema operativo, ni por la ofimática (como LibreOffice), ni por la mayoría de las herramientas que necesitas. Ahorro 100% garantizado.</p>
                     </div>
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-tachometer-alt"></i>
                         <h3>El rey de la velocidad en equipos antiguos</h3>
                         <p>Diseñado para ser ligero y eficiente. Linux no tiene procesos pesados innecesarios, lo que garantiza que tu PC antigua funcione más rápido y de manera más estable que nunca.</p>
                     </div>
-                    <div class="card reveal">
+                    <div class="card reveal-stagger">
                         <i class="card-icon fas fa-user-lock"></i>
                         <h3>Adiós a los virus y el espionaje</h3>
                         <p>Por su diseño y comunidad, Linux es inherentemente más seguro. Las vulnerabilidades se corrigen de inmediato, dándote privacidad total sin necesidad de costosos antivirus.</p>
@@ -400,13 +415,23 @@
     </div> 
 
     <script>
-        // ScrollReveal: Animación de revelado
-        ScrollReveal().reveal('.reveal', { 
+        // CONFIGURACIÓN BASE DEL REVELADO
+        const defaultReveal = {
             delay: 150,
             distance: '40px',
             origin: 'bottom',
             easing: 'ease-in-out',
             reset: true 
+        };
+
+        // 1. REVELADO GENERAL (Títulos, párrafos, botones)
+        ScrollReveal().reveal('.reveal', defaultReveal);
+
+        // 2. REVELADO ESCALONADO (Tarjetas .card)
+        ScrollReveal().reveal('.reveal-stagger', {
+            ...defaultReveal,
+            delay: 200, // Un poco más de delay inicial
+            interval: 150, // REVELADO UNA DESPUÉS DE OTRA con 150ms de diferencia
         });
 
 
