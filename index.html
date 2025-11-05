@@ -162,17 +162,17 @@
             background-blend-mode: overlay;
         }  
         
-        /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) - BLANCO y Opacidad 10% */
+        /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) - BLANCO y Opacidad 5% (AJUSTADA) */
         .section-final-cta { 
             background-color: var(--color-acento-primary); 
             color: var(--color-base); 
             padding: 80px 20px; 
-            /* Se cambia el color de la trama a blanco (255, 255, 255) */
+            /* Trama blanca con opacidad del 5% */
             background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%); 
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%); 
             
             background-size: 50px 50px; 
             background-position: 0 0, 0 25px, 25px -25px, -25px 0px; 
