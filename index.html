@@ -56,7 +56,7 @@
             overflow: hidden; 
             /* Estilos base para las tramas de fondo */
             background-repeat: repeat;
-            background-blend-mode: multiply; 
+            background-blend-mode: overlay; /* Mantiene el efecto de mezcla sutil (difuminado) */
         }
         
         .content-wrapper { max-width: 1000px; width: 100%; margin: auto; position: relative; z-index: 2; }
@@ -103,63 +103,59 @@
 
         
         /* ========================================================== */
-        /* FONDOS DE SECCIÓN CON TRAMAS QUIPU (OPACIDAD AUMENTADA Y FINAL) */
+        /* FONDOS DE SECCIÓN CON TRAMAS DIFERENTES Y DIFUMINADAS */
         /* ========================================================== */
         
         .section-header-bg { /* Selector vacío */ } 
         
+        /* TRAMA 1: REJILLA DE PUNTOS DIFUMINADOS (Sección Servicios) */
         .section-servicio { 
             background-color: #f9fafb; /* Color de fondo base */
-            background-image: repeating-linear-gradient(
-                                to right,
-                                rgba(0, 0, 0, 0.2) 0px,  /* Hilo visible (20% opacidad) */
-                                rgba(0, 0, 0, 0.2) 1px,
-                                transparent 1px,
-                                transparent 20px 
-                            );
-            background-size: 20px 100%; 
-            background-blend-mode: overlay; 
+            background-image: 
+                radial-gradient(circle at center, 
+                                rgba(0, 0, 0, 0.2) 2px, 
+                                rgba(0, 0, 0, 0.1) 8px,  
+                                transparent 10px);      
+            
+            background-size: 40px 40px; 
         } 
         
+        /* TRAMA 2: LÍNEAS DIAGONALES FINAS (Sección Talleres) */
         .section-talleres { 
-            background-color: #eef2f7; /* Color de fondo base */
-            background-image: repeating-linear-gradient(
-                                to right,
-                                rgba(0, 0, 0, 0.2) 0px,  /* Hilo visible (20% opacidad) */
-                                rgba(0, 0, 0, 0.2) 1px,
-                                transparent 1px,
-                                transparent 20px 
-                            );
-            background-size: 20px 100%;
-            background-blend-mode: overlay;
+            background-color: #eef2f7; /* Tonalidad diferente de fondo */
+            background-image: 
+                repeating-linear-gradient(
+                    -45deg, /* Ángulo diagonal */
+                    rgba(0, 0, 0, 0.15) 0px, 
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 1px,
+                    transparent 15px /* Distancia de repetición de la línea */
+                );
+            background-size: 15px 15px;
         }  
         
+        /* TRAMA 3: REJILLA DE CUADRADOS SUTILES (Sección Por Qué) */
         .section-beneficios { 
             background-color: #f9fafb; /* Color de fondo base */
-            background-image: repeating-linear-gradient(
-                                to right,
-                                rgba(0, 0, 0, 0.2) 0px,  /* Hilo visible (20% opacidad) */
-                                rgba(0, 0, 0, 0.2) 1px,
-                                transparent 1px,
-                                transparent 20px 
-                            );
-            background-size: 20px 100%;
-            background-blend-mode: overlay;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            
+            background-size: 20px 20px; /* Tamaño del cuadrado */
         }  
         
+        /* TRAMA 4: PUNTOS DIFUMINADOS OSCUROS (Sección CTA Final) */
         .section-final-cta { 
-            background-color: var(--color-acento-primary); /* Color base */
+            background-color: var(--color-acento-primary); /* Color base de acento */
             color: var(--color-base); 
             padding: 80px 20px; 
-            /* Trama 4: Hilos más oscuros */
-            background-image: repeating-linear-gradient(
-                                to right,
-                                rgba(0, 11, 54, 0.25) 0px, /* Hilos oscuros (25% opacidad) */
-                                rgba(0, 11, 54, 0.25) 1px,
-                                transparent 1px,
-                                transparent 20px 
-                            );
-            background-size: 20px 100%;
+            background-image: 
+                radial-gradient(circle at center, 
+                                rgba(0, 11, 54, 0.3) 2px, 
+                                rgba(0, 11, 54, 0.2) 8px, 
+                                transparent 10px); 
+            
+            background-size: 40px 40px;
             background-blend-mode: overlay;
         }
 
