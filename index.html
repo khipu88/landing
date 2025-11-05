@@ -63,13 +63,12 @@
 
         /* Estilos de Tipografía */
         header { 
-            /* MODIFICADO: Se quita el fondo de color, lo maneja el video y el overlay */
             color: white; 
             position: relative; 
             overflow: hidden; 
         }
 
-        /* AÑADIDO: Superposición oscura para legibilidad del texto sobre el video */
+        /* Superposición oscura para legibilidad del texto sobre el video */
         header::before {
             content: '';
             position: absolute;
@@ -82,19 +81,19 @@
             z-index: 1; /* Se pone entre el video y el contenido */
         }
 
-        /* AÑADIDO: Estilos para el video de fondo */
+        /* Estilos para el video de fondo */
         .video-background {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Clave para que el video cubra todo sin distorsionarse */
+            object-fit: cover; 
             transform: translate(-50%, -50%);
-            z-index: 0; /* Detrás de todo el contenido y la superposición */
+            z-index: 0; 
         }
 
-        /* Estilos de Header Centrado (REVERTIDO) */
+        /* Estilos de Header Centrado */
         header img { width: 30vw; max-width: 60px; height: auto; margin: 0 auto 35px auto; display: block; }
         header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } 
         header p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: #d1d5db; max-width: 750px; margin: 0 auto 30px; }
@@ -102,74 +101,70 @@
         h2 { color: var(--color-base); margin-bottom: 35px; font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-serif); line-height: 1.2; }
         h3 { color: var(--color-base); margin-top: 15px; font-size: 1.4rem; font-family: var(--font-serif); }
 
-        /* FONDOS DE SECCIÓN ALTERNADOS CON TRAMAS (SE MANTIENEN) */
-        .section-header-bg { /* Este selector ahora solo aplica al header */ } 
         
-        /* MODIFICADO: TRAMAS DE QUIPUS */
+        /* ========================================================== */
+        /* FONDOS DE SECCIÓN CON TRAMAS QUIPU (CORREGIDO) */
+        /* ========================================================== */
+        
+        .section-header-bg { /* Selector vacío, el header se maneja arriba */ } 
+        
         .section-servicio { 
-            background-color: #f9fafb;
-            /* Trama 1: Quipu Sutil */
-            background-image: linear-gradient(rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0.9)),
-                            repeating-linear-gradient(
+            background-color: #f9fafb; /* Color de fondo base */
+            background-image: repeating-linear-gradient(
                                 to right,
-                                rgba(0, 0, 0, 0.03) 0px, 
-                                rgba(0, 0, 0, 0.03) 1px,
+                                rgba(0, 0, 0, 0.08) 0px,  /* Hilo sutil (8% opacidad) */
+                                rgba(0, 0, 0, 0.08) 1px,
                                 transparent 1px,
                                 transparent 20px 
                             );
-            background-size: cover, 20px 100%;
-            background-blend-mode: normal, overlay;
+            background-size: 20px 100%; /* Tamaño de la trama */
+            background-blend-mode: overlay; /* Mezcla sutil con el fondo */
         } 
         
         .section-talleres { 
-            background-color: #eef2f7; 
-            /* Trama 2: Quipu Sutil sobre fondo más oscuro */
-            background-image: linear-gradient(rgba(238, 242, 247, 0.9), rgba(238, 242, 247, 0.9)),
-                            repeating-linear-gradient(
+            background-color: #eef2f7; /* Color de fondo base */
+            background-image: repeating-linear-gradient(
                                 to right,
-                                rgba(0, 0, 0, 0.03) 0px, 
-                                rgba(0, 0, 0, 0.03) 1px,
+                                rgba(0, 0, 0, 0.08) 0px,  /* Hilo sutil (8% opacidad) */
+                                rgba(0, 0, 0, 0.08) 1px,
                                 transparent 1px,
                                 transparent 20px 
                             );
-            background-size: cover, 20px 100%;
-            background-blend-mode: normal, overlay;
+            background-size: 20px 100%;
+            background-blend-mode: overlay;
         }  
         
         .section-beneficios { 
-            background-color: #f9fafb;
-            /* Trama 3: Quipu Sutil */
-            background-image: linear-gradient(rgba(249, 250, 251, 0.9), rgba(249, 250, 251, 0.9)),
-                            repeating-linear-gradient(
+            background-color: #f9fafb; /* Color de fondo base */
+            background-image: repeating-linear-gradient(
                                 to right,
-                                rgba(0, 0, 0, 0.03) 0px, 
-                                rgba(0, 0, 0, 0.03) 1px,
+                                rgba(0, 0, 0, 0.08) 0px,  /* Hilo sutil (8% opacidad) */
+                                rgba(0, 0, 0, 0.08) 1px,
                                 transparent 1px,
                                 transparent 20px 
                             );
-            background-size: cover, 20px 100%;
-            background-blend-mode: normal, overlay;
+            background-size: 20px 100%;
+            background-blend-mode: overlay;
         }  
         
         .section-final-cta { 
-            background: var(--color-acento-primary); 
+            background-color: var(--color-acento-primary); /* Color base */
             color: var(--color-base); 
             padding: 80px 20px; 
             /* Trama 4: Quipu Sutil sobre color de acento */
-            background-image: linear-gradient(rgba(0, 225, 213, 0.9), rgba(0, 225, 213, 0.9)),
-                            repeating-linear-gradient(
+            background-image: repeating-linear-gradient(
                                 to right,
-                                rgba(0, 11, 54, 0.05) 0px, /* Líneas oscuras (azul base) */
-                                rgba(0, 11, 54, 0.05) 1px,
+                                rgba(0, 11, 54, 0.1) 0px, /* Hilos oscuros (10% opacidad) */
+                                rgba(0, 11, 54, 0.1) 1px,
                                 transparent 1px,
                                 transparent 20px 
                             );
-            background-size: cover, 20px 100%;
-            background-blend-mode: normal, overlay;
+            background-size: 20px 100%;
+            background-blend-mode: overlay;
         }
 
         /* ========================================================== */
-        /* 3. BOTONES Y TARJETAS (SE MANTIENEN IGUAL) */
+        /* 3. BOTONES Y TARJETAS */
         /* ========================================================== */
         
         /* CTA BOTÓN ÚNICO */
@@ -244,7 +239,7 @@
         }
 
         /* ========================================================== */
-        /* 4. RESPONSIVIDAD Y NAVEGACIÓN (SE MANTIENEN IGUAL) */
+        /* 4. RESPONSIVIDAD Y NAVEGACIÓN */
         /* ========================================================== */
         footer { background: var(--color-base); color: #9ca3af; text-align: center; padding: 15px 20px; font-size: 0.9rem; position: absolute; bottom: 0; left: 0; width: 100%; }
         
@@ -294,9 +289,9 @@
 
         <header id="inicio" class="snap-section section-header-bg">
             
-            <video class="video-background" autoplay muted loop playsinline poster="poster.png">
-                <source src="videofondo.mp4" type="video/mp4">
-                <source src="videofondo.webm" type="video/webm">
+            <video class="video-background" autoplay muted loop playsinline poster="img/khipu-poster.jpg">
+                <source src="video/khipu-fondo.mp4" type="video/mp4">
+                <source src="video/khipu-fondo.webm" type="video/webm">
                 Tu navegador no soporta videos HTML5.
             </video>
             <div class="content-wrapper">
