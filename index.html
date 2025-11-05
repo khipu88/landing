@@ -162,19 +162,20 @@
             background-blend-mode: overlay;
         }  
         
-        /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) - Separada y con Opacidad 10% */
+        /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) - BLANCO y Opacidad 10% */
         .section-final-cta { 
             background-color: var(--color-acento-primary); 
             color: var(--color-base); 
             padding: 80px 20px; 
+            /* Se cambia el color de la trama a blanco (255, 255, 255) */
             background-image: 
-                linear-gradient(45deg, rgba(0, 11, 54, 0.1) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(0, 11, 54, 0.1) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(0, 11, 54, 0.1) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(0, 11, 54, 0.1) 75%); 
+                linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%); 
             
-            background-size: 50px 50px; /* Aumentado para separar más los cubos */
-            background-position: 0 0, 0 25px, 25px -25px, -25px 0px; /* Ajuste de posición para cubos más espaciados */
+            background-size: 50px 50px; 
+            background-position: 0 0, 0 25px, 25px -25px, -25px 0px; 
             background-blend-mode: overlay;
         }
 
@@ -245,7 +246,7 @@
             background: var(--color-base); 
             color: var(--color-acento-primary); 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px; /* Espacio extra para los íconos sociales */
+            margin-bottom: 40px; 
         }
         .section-final-cta .cta-btn:hover { 
             background: #111827; 
@@ -261,19 +262,19 @@
         
         /* Íconos sociales en la sección final */
         .social-icons { 
-            margin-top: 0; /* Ya no necesitamos el margin-top aquí, el botón lo da */
+            margin-top: 0; 
             margin-bottom: 20px; 
             display: flex; 
             gap: 30px; 
             justify-content: center; 
         }
         .social-icons a { 
-            color: var(--color-base); /* Color azul oscuro */
+            color: var(--color-base); 
             font-size: 2.5rem; 
             transition: color 0.3s ease, transform 0.3s ease; 
         }
         .social-icons a:hover { 
-            color: #1f2937; /* Un tono un poco más oscuro al hacer hover */
+            color: #1f2937; 
             transform: scale(1.15); 
         }
         
