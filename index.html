@@ -150,17 +150,34 @@
             background-blend-mode: overlay;
         } 
         
-        /* TRAMA 3: IGUAL A SECCIÓN 2 (REJILLA ISOMÉTRICA) - Opacidad 50% (MANTENIDA) */
+        /* TRAMA 3: IMAGEN DE TUX (Sección ¿Por Qué?) - Opacidad y posición */
         .section-beneficios { 
-            background-color: #f9fafb; 
-            background-image: 
-                linear-gradient(120deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
-                linear-gradient(60deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
+            background-color: #f9fafb; /* Color de fondo base */
+            background-image: url('tux-bg.webp'), /* 💡 Agregado: Imagen de Tux */
+                              linear-gradient(120deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
+                              linear-gradient(60deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
+                              linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
             
-            background-size: 30px 52px; 
-            background-blend-mode: overlay;
-        } 
+            background-size: 
+                contain, /* La imagen de Tux se ajusta sin cortarse */
+                30px 52px; /* Tamaño para la trama geométrica */
+            background-position: 
+                center center, /* Tux centrado */
+                0 0, 0 0, 0 0; /* Trama geométrica */
+            background-repeat: 
+                no-repeat, /* Tux no se repite */
+                repeat; /* La trama geométrica sí se repite */
+            background-blend-mode: 
+                luminosity, /* Modo de mezcla para Tux para un efecto más sutil */
+                overlay; /* Modo de mezcla para la trama geométrica */
+            opacity: 0.1; /* 💡 Ajuste: Opacidad para que Tux sea un fondo muy sutil */
+            transition: opacity 0.5s ease; /* Suaviza el cambio de opacidad si se animara */
+        }
+        /* Ajuste de opacidad para el texto y contenido de esta sección si la imagen es muy dominante */
+        .section-beneficios .content-wrapper {
+             /* Puedes ajustar la opacidad del contenido si la imagen de fondo es muy fuerte.
+                En este caso, ajustamos la opacidad de la imagen en sí, por lo que el contenido no necesita ajuste extra. */
+        }
         
         /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) - BLANCO y Opacidad 5% (AJUSTADA) */
         .section-final-cta { 
@@ -341,7 +358,7 @@
                         <i class="card-icon fas fa-recycle"></i>
                         <h3>Ahorro genuino y reciclaje inteligente</h3>
                         <p>Alargas la vida útil de tu hardware por años, contribuyes al planeta y ahorras dinero que puedes invertir en tu familia.</p>
-                    </div>
+                    L</div>
                     <div class="card reveal-stagger">
                         <i class="card-icon fas fa-shield-alt"></i>
                         <h3>Máxima seguridad y privacidad garantizada</h3>
@@ -434,21 +451,63 @@
         const defaultReveal = {
             delay: 150,
             distance: '40px',
-            origin: 'bottom',
             easing: 'ease-in-out',
-            // 💡 CORRECCIÓN CLAVE: Cambiado a false para evitar que los elementos salten al salir de la vista.
-            reset: false 
+            reset: true, 
+            duration: 500, 
+            viewFactor: 0.5 
         };
 
-        // 1. REVELADO GENERAL (Títulos, párrafos, botones)
-        ScrollReveal().reveal('.reveal', defaultReveal);
+        // Aplicar ScrollReveal a diferentes elementos con orígenes variados
 
-        // 2. REVELADO ESCALONADO (Tarjetas .card)
-        // Se aplica el efecto una después de otra con 150ms de diferencia
-        ScrollReveal().reveal('.reveal-stagger', {
+        // Sección INICIO (Logo, Título, Párrafo, Botón)
+        ScrollReveal().reveal('#inicio .reveal', { ...defaultReveal, origin: 'bottom' });
+
+        // Sección SERVICIO (H2, Subtítulo, Botón)
+        ScrollReveal().reveal('#servicio h2, #servicio .subtitle, #servicio .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'right', 
+            distance: '50px' 
+        });
+        // Las tarjetas aparecen de abajo
+        ScrollReveal().reveal('#servicio .reveal-stagger', {
             ...defaultReveal,
             delay: 200, 
-            interval: 150, 
+            interval: 150,
+            origin: 'bottom'
+        });
+
+        // Sección TALLERES (H2, Subtítulo, Botón)
+        ScrollReveal().reveal('#talleres h2, #talleres .subtitle, #talleres .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'left', 
+            distance: '50px' 
+        });
+        // Las tarjetas aparecen de abajo
+        ScrollReveal().reveal('#talleres .reveal-stagger', {
+            ...defaultReveal,
+            delay: 200, 
+            interval: 150,
+            origin: 'bottom'
+        });
+
+        // Sección ¿POR QUÉ? (H2, Subtítulo, Botón)
+        ScrollReveal().reveal('#porque h2, #porque .subtitle, #porque .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'top', 
+            distance: '50px' 
+        });
+        // Las tarjetas aparecen de abajo
+        ScrollReveal().reveal('#porque .reveal-stagger', {
+            ...defaultReveal,
+            delay: 200, 
+            interval: 150,
+            origin: 'bottom'
+        });
+
+        // Sección CONTACTO (H2, Párrafo, Botón, Íconos Sociales)
+        ScrollReveal().reveal('#contacto .reveal', { 
+            ...defaultReveal, 
+            origin: 'bottom' 
         });
 
 
@@ -458,7 +517,6 @@
 
         function updateNav() {
             let currentSection = '';
-            // Detecta la sección que está en el centro de la ventana (más precisa)
             const scrollCenter = window.scrollY + (window.innerHeight / 2);
 
             sections.forEach(section => {
