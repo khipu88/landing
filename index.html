@@ -131,29 +131,31 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG DENTRO DEL SEPARADOR (ROTACIÓN CORREGIDA) */
+        /* 5. ONDAS SVG DENTRO DEL SEPARADOR (ANCLAJE BOTTOM) */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            top: 0; 
+            /* CAMBIO CLAVE: Anclamos el contenedor al fondo del separador */
+            bottom: 0; 
             left: 0;
             width: 100%;
             height: var(--wave-height); 
             overflow: hidden; 
             line-height: 0; 
             z-index: 10; 
-            /* Se ha eliminado la rotación del contenedor */
+            /* Aplicamos la rotación al contenedor */
+            transform: rotate(180deg); 
+            /* Añadimos un pequeño margen negativo para evitar líneas blancas */
+            margin-bottom: -1px; 
         }
-        
-        /* APLICAMOS LA ROTACIÓN DIRECTAMENTE AL SVG */
         .wave-separator svg {
             position: relative;
             display: block;
             width: calc(100% + 1.3px); 
             height: var(--wave-height); 
-            /* ¡CAMBIO CLAVE! Gira el elemento SVG 180 grados */
-            transform: rotate(180deg); 
-            margin-top: calc(0px - var(--wave-height));
+            /* Eliminamos todas las transformaciones y márgenes aquí */
+            transform: none; 
+            margin-top: 0;
         }
 
         /* Colores de las ondas: DEBE COINCIDIR CON EL COLOR DEL FONDO DE LA SECCIÓN PREVIA */
@@ -330,8 +332,6 @@
 
         // Navegación Fija y Detección de Sección Activa
         const scrollContainer = document.querySelector('.scroll-container');
-        // Ahora seleccionamos tanto las secciones de contenido como las de onda (aunque solo nos importan los IDs)
-        const allSections = document.querySelectorAll('.snap-section, .wave-only-separator');
         const sections = document.querySelectorAll('.snap-section');
         const navLinks = document.querySelectorAll('.dot-navigation a');
 
@@ -378,5 +378,4 @@
 
 </body>
 </html>
-
 
