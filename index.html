@@ -45,15 +45,12 @@
             overflow-y: scroll;
             scroll-snap-type: y mandatory; 
             scroll-behavior: smooth; 
-            /* CORRECCIÓN CLAVE: Eliminamos scroll-padding-top */
             scroll-padding-top: 0; 
         }
         
-        /* Estilos para las secciones de contenido (Header, Servicio, Cursos, etc.) */
         .snap-section {
             height: 100vh; 
             scroll-snap-align: start; 
-            /* Padding limpio, ya no compensa la onda */
             padding: 40px 20px 80px; 
             display: flex; 
             flex-direction: column;
@@ -65,10 +62,9 @@
             overflow: hidden; 
         }
         
-        /* NUEVA SECCIÓN: Separador exclusivo para la onda */
+        /* SECCIÓN: Separador exclusivo para la onda (80px) */
         .wave-only-separator {
-            height: var(--wave-height); /* 80px de alto */
-            /* Es una sección de transición, NO queremos que el scroll se detenga aquí */
+            height: var(--wave-height); 
             scroll-snap-align: none; 
             width: 100%;
             position: relative;
@@ -135,27 +131,30 @@
         }
 
         /* ========================================================== */
-        /* 5. ONDAS SVG DENTRO DEL SEPARADOR */
+        /* 5. ONDAS SVG DENTRO DEL SEPARADOR (ROTACIÓN CORREGIDA) */
         /* ========================================================== */
         .wave-separator {
             position: absolute;
-            top: 0; /* Anclado al top de la sección de 80px */
+            top: 0; 
             left: 0;
             width: 100%;
             height: var(--wave-height); 
             overflow: hidden; 
             line-height: 0; 
             z-index: 10; 
-            /* Esto invierte la onda para que la curva mire hacia ARRIBA (forma de término) */
-            transform: rotate(180deg); 
+            /* Se ha eliminado la rotación del contenedor */
         }
+        
+        /* APLICAMOS LA ROTACIÓN DIRECTAMENTE AL SVG */
         .wave-separator svg {
             position: relative;
             display: block;
             width: calc(100% + 1.3px); 
             height: var(--wave-height); 
+            /* ¡CAMBIO CLAVE! Gira el elemento SVG 180 grados */
+            transform: rotate(180deg); 
         }
-        
+
         /* Colores de las ondas: DEBE COINCIDIR CON EL COLOR DEL FONDO DE LA SECCIÓN PREVIA */
         .wave-from-header .shape-fill { fill: var(--color-base); }           
         .wave-from-optimizado .shape-fill { fill: #f9fafb; }           
