@@ -280,7 +280,7 @@
         }
 
         /* ========================================================== */
-        /* 4. RESPONSIVIDAD Y NAVEGACIÓN Y FOOTER (AJUSTE DE ÍCONOS) */
+        /* 4. NAVEGACIÓN Y FOOTER */
         /* ========================================================== */
         footer { position: relative; background: var(--color-base); color: #9ca3af; text-align: center; padding: 15px 20px; font-size: 0.9rem; position: absolute; bottom: 0; left: 0; width: 100%; }
         
@@ -314,20 +314,6 @@
         header + .dot-navigation a.active { 
             background: var(--color-acento-primary); 
             border: 2px solid white; 
-        }
-        
-        /* Media Queries para responsividad (CÓDIGO CORREGIDO AQUÍ) */
-        @media (max-width: 600px) {
-            .snap-section { min-height: 80vh; padding: 50px 20px; }
-            .dot-navigation { display: none !important; }
-
-            /* AJUSTE CLAVE PARA TUX EN MÓVILES */
-            .section-beneficios::before {
-                /* Tux más pequeño en móvil para que quepa */
-                background-size: 500px; 
-                /* Mover Tux a la esquina inferior derecha para que no corte el contenido */
-                background-position: right bottom; 
-            }
         }
     </style>
 </head>
@@ -451,7 +437,7 @@
                     <a href="https://www.facebook.com/khipu88pe" target="_blank" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/khipu88pe" target="_blank" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:khipu88@gmail.com" aria-label="Envíanos un correo electrónico"><i class="fas fa-envelope"></i></a>
-                </div>
+            </div>
             </div>
             
             <footer>
