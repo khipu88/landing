@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khipu88 Linux Lab | Revive tu PC con Linux, Ahorra y Aprende Fácil</title>
+    <title>KHIPU 88 | Revive tu PC con Linux, Ahorra y Aprende Fácil</title>
 
-    <link rel="icon" type="image/png" href="ico.png">
+    <link rel="icon" type="image/png" href="favicon.png"> 
     
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    
     <meta property="og:title" content="KHIPU 88: Optimización Linux a Domicilio en Trujillo y Cursos Virtuales" />
     <meta property="og:description" content="Extiende la vida útil de tu PC antigua y ahorra dinero. Soluciones rápidas, seguras y sostenibles." />
     <meta property="og:image" content="logocuadrado.webp" /> 
@@ -54,25 +54,54 @@
             text-align: center;
             position: relative; 
             overflow: hidden; 
+            /* Estilos base para las tramas de fondo */
+            background-repeat: repeat;
+            background-blend-mode: multiply; /* Para que la trama se combine sutilmente */
         }
         
-        .content-wrapper { max-width: 1000px; width: 100%; margin: auto; }
+        .content-wrapper { max-width: 1000px; width: 100%; margin: auto; position: relative; z-index: 2; }
 
         /* Estilos de Tipografía */
-        header { background: var(--color-base); color: white; }
+        header { 
+            background: var(--color-base); 
+            color: white; 
+            /* NO VIDEO: Fondo simple de color base */
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        /* Estilos de Header Centrado (REVERTIDO) */
         header img { width: 30vw; max-width: 60px; height: auto; margin: 0 auto 35px auto; display: block; }
-        header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } /* Ajuste de línea */
+        header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } 
         header p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: #d1d5db; max-width: 750px; margin: 0 auto 30px; }
         
-        /* Títulos de sección con salto de línea */
         h2 { color: var(--color-base); margin-bottom: 35px; font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-serif); line-height: 1.2; }
         h3 { color: var(--color-base); margin-top: 15px; font-size: 1.4rem; font-family: var(--font-serif); }
 
-        /* FONDOS DE SECCIÓN ALTERNADOS */
+        /* FONDOS DE SECCIÓN ALTERNADOS CON TRAMAS (SE MANTIENEN) */
         .section-header-bg { background: var(--color-base); } 
-        .section-servicio { background: #f9fafb; } 
-        .section-talleres { background: #eef2f7; }  
-        .section-beneficios { background: #f9fafb; }  
+        
+        .section-servicio { 
+            background-color: #f9fafb;
+            /* Trama 1: Círculos o Líneas Abstractas */
+            background-image: url('https://www.transparenttextures.com/patterns/connected-world.png');
+            background-size: 200px;
+        } 
+        
+        .section-talleres { 
+            background-color: #eef2f7; 
+            /* Trama 2: Geometría Suave (Cubos) */
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-size: 150px;
+        }  
+        
+        .section-beneficios { 
+            background-color: #f9fafb;
+            /* Trama 3: Malla o Puntos */
+            background-image: url('https://www.transparenttextures.com/patterns/dot-grid.png');
+            background-size: 50px;
+        }  
+        
         .section-final-cta { 
             background: var(--color-acento-primary); 
             color: var(--color-base); 
@@ -80,7 +109,7 @@
         }
 
         /* ========================================================== */
-        /* 3. BOTONES Y TARJETAS */
+        /* 3. BOTONES Y TARJETAS (SE MANTIENEN IGUAL) */
         /* ========================================================== */
         
         /* CTA BOTÓN ÚNICO */
@@ -136,8 +165,6 @@
             margin-bottom: 10px; 
             font-size: 1.3rem; 
             color: var(--color-base);
-            /* Importante para que el case del texto se mantenga como está en el HTML */
-            text-transform: capitalize; 
         }
         .card p { font-size: 1rem; color: #4b5563; }
 
@@ -157,15 +184,14 @@
         }
 
         /* ========================================================== */
-        /* 4. RESPONSIVIDAD Y NAVEGACIÓN */
+        /* 4. RESPONSIVIDAD Y NAVEGACIÓN (SE MANTIENEN IGUAL) */
         /* ========================================================== */
         footer { background: var(--color-base); color: #9ca3af; text-align: center; padding: 15px 20px; font-size: 0.9rem; position: absolute; bottom: 0; left: 0; width: 100%; }
         
-        /* Ajuste: Botones de Redes Sociales más grandes */
         .social-icons { margin-top: 40px; margin-bottom: 20px; display: flex; gap: 30px; justify-content: center; }
         .social-icons a { 
             color: #9ca3af; 
-            font-size: 2.5rem; /* Aumentado */
+            font-size: 2.5rem; 
             transition: color 0.3s ease, transform 0.3s ease; 
         }
         .social-icons a:hover { 
@@ -173,13 +199,14 @@
             transform: scale(1.15); 
         }
         
-        /* Navegación por Puntos (se mantiene igual) */
+        /* Navegación por Puntos */
         .dot-navigation { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); z-index: 1000; }
         .dot-navigation a { display: block; width: 12px; height: 12px; margin: 15px 0; background: rgba(255, 255, 255, 0.5); border-radius: 50%; transition: all 0.3s ease; text-indent: -9999px; border: 2px solid rgba(0, 0, 0, 0.2); }
         .dot-navigation a.active { background: var(--color-acento-primary); border: 2px solid var(--color-base); transform: scale(1.2); }
         header + .dot-navigation a { background: rgba(255, 255, 255, 0.7); border: 2px solid var(--color-acento-primary); }
         header + .dot-navigation a.active { background: var(--color-acento-primary); border: 2px solid white; }
         
+        /* Media Queries para responsividad */
         @media (max-width: 600px) {
             .snap-section { min-height: 80vh; padding: 50px 20px; }
             .dot-navigation { display: none !important; }
@@ -210,7 +237,7 @@
         <section id="servicio" class="snap-section section-servicio">
             <div class="content-wrapper">
                 <h2 class="reveal">¡Optimizamos tu compu! <br> Hacemos que tu equipo siga siendo útil.</h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal">Tu compu puede seguir siendo útil.</p>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;" class="reveal"></p>
                 
                 <div class="grid-3-cards">
                     <div class="card reveal">
