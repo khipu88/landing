@@ -25,7 +25,6 @@
             --color-acento-secondary: #08D3FF; 
             --font-serif: 'DM Serif Text', serif; 
             --font-sans: 'Quicksand', sans-serif;  
-            /* --wave-height: 80px;  <-- ELIMINADA */
         }
 
         /* RESET Y ESTILOS BASE */
@@ -51,7 +50,6 @@
         .snap-section {
             height: 100vh; 
             scroll-snap-align: start; 
-            /* Padding ajustado para ser uniforme */
             padding: 80px 20px; 
             display: flex; 
             flex-direction: column;
@@ -61,12 +59,15 @@
             text-align: center;
             position: relative; 
             overflow: hidden; 
+            /* AGREGADO: Sombra en la parte inferior de cada sección */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
         /* Ajuste para el Header */
         header { 
             background: var(--color-base); 
             color: white; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra para el header también */
         }
 
         /* Contenedor interno para limitar el ancho del contenido */
@@ -97,11 +98,8 @@
             justify-content: flex-start; 
             padding-top: 20vh; 
             padding-bottom: 20vh;
+            box-shadow: none; /* La última sección no necesita sombra en la parte inferior */
         }
-
-        /* ELIMINADAS: Clases de fondo de separadores. */
-        /* ELIMINADAS: Clases de ondas (.wave-separator, .shape-fill, etc.). */
-
 
         /* ... [Navegación y Responsividad: SIN CAMBIOS] ... */
         .dot-navigation { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); z-index: 1000; }
