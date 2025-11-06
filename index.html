@@ -17,27 +17,27 @@
     
     <meta property="og:title" content="Khipu88 Linux Lab: Revive tu compu con Linux" />
     <meta property="og:description" content="Extiende la vida útil de tu compu antigua y ahorra dinero. Soluciones rápidas, seguras y sostenibles." />
-    <meta property="og:image" content="logoweb.webp" /> 
+    <meta property="og:image" content="logoweb.webp" /> 
     
     <style>
         /* ========================================================== */
         /* 1. PALETA DE COLORES Y FUENTES DE KHIPU 88 */
         /* ========================================================== */
         :root {
-            --color-base: #000B36;           
-            --color-acento-primary: #00E1D5;  
+            --color-base: #000B36;           
+            --color-acento-primary: #00E1D5;  
             --color-acento-secondary: #08D3FF;
-            --font-serif: 'DM Serif Text', serif; 
-            --font-sans: 'Quicksand', sans-serif; 
+            --font-serif: 'DM Serif Text', serif; 
+            --font-sans: 'Quicksand', sans-serif; 
         }
 
         /* RESET Y ESTILOS BASE */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            line-height: 1.6; 
+        body { 
+            line-height: 1.6; 
             font-family: var(--font-sans);
             background-color: #f9fafb;
-            overflow-x: hidden; 
+            overflow-x: hidden; 
         }
 
         /* ========================================================== */
@@ -45,30 +45,30 @@
         /* ========================================================== */
         .scroll-container { height: auto; overflow-y: visible; }
         .snap-section {
-            min-height: 100vh; 
-            height: auto; 
-            padding: 80px 20px; 
-            display: flex; 
+            min-height: 100vh; 
+            height: auto; 
+            padding: 80px 20px; 
+            display: flex; 
             flex-direction: column;
-            justify-content: center; 
+            justify-content: center; 
             align-items: center;
             margin: 0 auto;
             text-align: center;
-            position: relative; 
-            overflow: hidden; 
+            position: relative; 
+            overflow: hidden; 
             /* Estilos base para las tramas de fondo */
             background-repeat: repeat;
-            background-blend-mode: overlay; 
+            background-blend-mode: overlay; 
         }
-        
+         
         /* Aseguramos que el contenido esté por encima de cualquier pseudo-elemento */
         .content-wrapper { max-width: 1000px; width: 100%; margin: auto; position: relative; z-index: 2; }
 
         /* Estilos de Tipografía */
-        header { 
-            color: white; 
-            position: relative; 
-            overflow: hidden; 
+        header { 
+            color: white; 
+            position: relative; 
+            overflow: hidden; 
         }
 
         /* Superposición oscura para legibilidad del texto sobre el video */
@@ -79,9 +79,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--color-base); 
-            opacity: 0.75; 
-            z-index: 1; 
+            background-color: var(--color-base); 
+            opacity: 0.75; 
+            z-index: 1; 
         }
 
         /* Estilos para el video de fondo */
@@ -91,82 +91,82 @@
             left: 50%;
             width: 100%;
             height: 100%;
-            object-fit: cover; 
+            object-fit: cover; 
             transform: translate(-50%, -50%);
-            z-index: 0; 
+            z-index: 0; 
         }
 
         /* Estilos de Header Centrado */
         header img { width: 30vw; max-width: 60px; height: auto; margin: 0 auto 35px auto; display: block; }
-        header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } 
+        header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 15px; font-family: var(--font-serif); line-height: 1.1; } 
         header p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: #d1d5db; max-width: 750px; margin: 0 auto 30px; }
-        
+         
         h2 { color: var(--color-base); margin-bottom: 10px; font-size: clamp(1.8rem, 4vw, 2.8rem); font-family: var(--font-serif); line-height: 1.2; }
         h3 { color: var(--color-base); margin-top: 15px; font-size: 1.4rem; font-family: var(--font-serif); }
 
         /* Estilo: Subtítulos de Secciones 2, 3 y 4 */
         .subtitle {
             font-size: clamp(1rem, 2vw, 1.3rem);
-            color: #4b5563; 
-            max-width: 750px; 
-            margin: 0 auto 40px; 
+            color: #4b5563; 
+            max-width: 750px; 
+            margin: 0 auto 40px; 
         }
-        
+         
         /* ========================================================== */
         /* FONDOS DE SECCIÓN CON TRAMAS GEOMÉTRICAS (CÓDIGO CORREGIDO) */
         /* ========================================================== */
-        
-        .section-header-bg { /* Selector vacío */ } 
-        
+         
+        .section-header-bg { /* Selector vacío */ } 
+         
         /* TRAMA 1: REJILLA ISOMÉTRICA (Sección Servicios) */
-        .section-servicio { 
-            background-color: #f9fafb; 
-            background-image: 
+        .section-servicio { 
+            background-color: #f9fafb; 
+            background-image: 
                 linear-gradient(120deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
                 linear-gradient(60deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
                 linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
-            
-            background-size: 30px 52px; 
+             
+            background-size: 30px 52px; 
             background-blend-mode: overlay;
-        } 
-        
+        } 
+         
         /* TRAMA 2: LÍNEAS DE CIRCUITO/PLACA BASE (Sección Talleres) */
-        .section-talleres { 
-            background-color: #eef2ff; 
-            background-image: 
+        .section-talleres { 
+            background-color: #eef2ff; 
+            background-image: 
                 repeating-linear-gradient(
-                    -45deg, 
-                    rgba(0, 0, 0, 0.15) 0, 
+                    -45deg, 
+                    rgba(0, 0, 0, 0.15) 0, 
                     rgba(0, 0, 0, 0.15) 2px,
                     transparent 2px,
                     transparent 40px
                 ),
                 repeating-linear-gradient(
                     45deg,
-                    rgba(0, 0, 0, 0.15) 0, 
+                    rgba(0, 0, 0, 0.15) 0, 
                     rgba(0, 0, 0, 0.15) 2px,
                     transparent 2px,
                     transparent 40px
                 );
-            background-size: 40px 40px; 
+            background-size: 40px 40px; 
             background-blend-mode: overlay;
-        } 
-        
+        } 
+         
         /* TRAMA 3: IMAGEN DE TUX (Sección ¿Por Qué?) - Ahora tiene Trama base y Tux en ::before */
-        .section-beneficios { 
-            background-color: #f9fafb; 
+        .section-beneficios { 
+            background-color: #f9fafb; 
             /* Trama de rejilla en la sección base */
-            background-image: 
+            background-image: 
                 linear-gradient(120deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
                 linear-gradient(60deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px),
                 linear-gradient(0deg, rgba(0, 0, 0, 0.5) 1px, transparent 1px);
-            
-            background-size: 30px 52px; 
+             
+            background-size: 30px 52px; 
             background-position: 0 0, 0 0, 0 0;
             background-repeat: repeat;
             background-blend-mode: overlay;
-            position: relative; 
-            overflow: hidden; 
+            position: relative; 
+            overflow: hidden; 
         }
 
         /* Pseudo-elemento para mostrar solo la imagen de Tux con opacidad y efecto parallax */
@@ -177,80 +177,87 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; 
-            
+            z-index: 1; 
+             
             background-image: url('tux-bg.webp');
             background-size: 1100px; /* Tux más grande */
             background-position: right 50%; /* A la derecha, centrado verticalmente */
             background-repeat: no-repeat;
-            
+             
             opacity: 0.35; /* Opacidad de Tux */
-            background-blend-mode: normal; 
-            
+            background-blend-mode: normal; 
+             
             background-attachment: fixed; /* Efecto Parallax */
         }
-        
+         
         /* TRAMA 4: CUBOS ENTRELAZADOS ISOMÉTRICOS (Sección CTA Final) */
-        .section-final-cta { 
-            background-color: var(--color-acento-primary); 
-            color: var(--color-base); 
-            padding: 80px 20px; 
-            background-image: 
-                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%), 
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%); 
-            
-            background-size: 50px 50px; 
-            background-position: 0 0, 0 25px, 25px -25px, -25px 0px; 
+        .section-final-cta { 
+            background-color: var(--color-acento-primary); 
+            color: var(--color-base); 
+            padding: 80px 20px; 
+            background-image: 
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%); 
+             
+            background-size: 50px 50px; 
+            background-position: 0 0, 0 25px, 25px -25px, -25px 0px; 
             background-blend-mode: overlay;
         }
 
         /* ========================================================== */
         /* 3. BOTONES Y TARJETAS */
         /* ========================================================== */
-        
+         
         /* CTA BOTÓN ÚNICO */
-        .cta-btn { 
-            display: inline-block; background: var(--color-acento-primary); 
-            color: var(--color-base); padding: 18px 40px; 
-            border-radius: 50px; text-decoration: none; 
-            font-weight: bold; font-size: 1.15rem; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 6px 15px rgba(0, 225, 213, 0.4); 
-            margin-top: 30px; 
+        .cta-btn { 
+            display: inline-flex; /* Usar flex para alinear ícono y texto */
+            align-items: center; /* Centrar verticalmente */
+            gap: 8px; /* Espacio entre ícono y texto */
+            background: var(--color-acento-primary); 
+            color: var(--color-base); padding: 18px 40px; 
+            border-radius: 50px; text-decoration: none; 
+            font-weight: bold; font-size: 1.15rem; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 6px 15px rgba(0, 225, 213, 0.4); 
+            margin-top: 30px; 
         }
         
-        .cta-btn:hover { 
-            background: var(--color-acento-secondary); 
-            transform: scale(1.05); 
-            color: white; 
+        .cta-btn .fab {
+            font-size: 1.3rem; /* Ajustar el tamaño del ícono de WhatsApp */
+        }
+         
+        .cta-btn:hover { 
+            background: var(--color-acento-secondary); 
+            transform: scale(1.05); 
+            color: white; 
             box-shadow: 0 8px 20px rgba(8, 211, 255, 0.6);
         }
 
         /* Estilo para los 3 Beneficios */
-        .grid-3-cards { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
+        .grid-3-cards { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
             margin-top: 40px;
         }
 
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 12px; 
-            text-align: left; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05); 
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            text-align: left; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05); 
             border: 1px solid #e5e7eb;
         }
         .card:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
             border-color: var(--color-acento-primary);
         }
-        
+         
         /* Iconos de las Cards */
         .card-icon {
             font-size: 2.2rem;
@@ -258,10 +265,10 @@
             margin-bottom: 10px;
             display: block;
         }
-        .card h3 { 
+        .card h3 { 
             margin-top: 0;
-            margin-bottom: 10px; 
-            font-size: 1.3rem; 
+            margin-bottom: 10px; 
+            font-size: 1.3rem; 
             color: var(--color-base);
         }
         .card p { font-size: 1rem; color: #4b5563; }
@@ -269,64 +276,64 @@
         /* Estilos específicos para el CTA Final */
         .section-final-cta h2 { color: var(--color-base); line-height: 1.2; }
         .section-final-cta p { font-size: 1.3rem; margin-top: -15px; color: #1f2937; }
-        .section-final-cta .cta-btn { 
-            background: var(--color-base); 
-            color: var(--color-acento-primary); 
+        .section-final-cta .cta-btn { 
+            background: var(--color-base); 
+            color: var(--color-acento-primary); 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px; 
+            margin-bottom: 40px; 
         }
-        .section-final-cta .cta-btn:hover { 
-            background: #111827; 
-            color: var(--color-acento-secondary); 
-            transform: scale(1.05); 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+        .section-final-cta .cta-btn:hover { 
+            background: #111827; 
+            color: var(--color-acento-secondary); 
+            transform: scale(1.05); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
         }
 
         /* ========================================================== */
         /* 4. RESPONSIVIDAD Y NAVEGACIÓN Y FOOTER */
         /* ========================================================== */
         footer { position: relative; background: var(--color-base); color: #9ca3af; text-align: center; padding: 15px 20px; font-size: 0.9rem; position: absolute; bottom: 0; left: 0; width: 100%; }
-        
+         
         /* Íconos sociales en la sección final */
-        .social-icons { 
-            margin-top: 0; 
-            margin-bottom: 20px; 
-            display: flex; 
-            gap: 30px; 
-            justify-content: center; 
+        .social-icons { 
+            margin-top: 0; 
+            margin-bottom: 20px; 
+            display: flex; 
+            gap: 30px; 
+            justify-content: center; 
         }
-        .social-icons a { 
-            color: var(--color-base); 
-            font-size: 2.5rem; 
-            transition: color 0.3s ease, transform 0.3s ease; 
+        .social-icons a { 
+            color: var(--color-base); 
+            font-size: 2.5rem; 
+            transition: color 0.3s ease, transform 0.3s ease; 
         }
-        .social-icons a:hover { 
-            color: #1f2937; 
-            transform: scale(1.15); 
+        .social-icons a:hover { 
+            color: #1f2937; 
+            transform: scale(1.15); 
         }
-        
+         
         /* Navegación por Puntos */
         .dot-navigation { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); z-index: 1000; }
         .dot-navigation a { display: block; width: 12px; height: 12px; margin: 15px 0; background: rgba(255, 255, 255, 0.5); border-radius: 50%; transition: all 0.3s ease; text-indent: -9999px; border: 2px solid rgba(0, 0, 0, 0.2); }
         .dot-navigation a.active { background: var(--color-acento-primary); border: 2px solid var(--color-base); transform: scale(1.2); }
         /* Ajuste para que los puntos se vean sobre el video (fondo oscuro) */
-        header + .dot-navigation a { 
-            background: rgba(255, 255, 255, 0.7); 
-            border: 2px solid var(--color-acento-primary); 
+        header + .dot-navigation a { 
+            background: rgba(255, 255, 255, 0.7); 
+            border: 2px solid var(--color-acento-primary); 
         }
-        header + .dot-navigation a.active { 
-            background: var(--color-acento-primary); 
-            border: 2px solid white; 
+        header + .dot-navigation a.active { 
+            background: var(--color-acento-primary); 
+            border: 2px solid white; 
         }
-        
+         
         /* 💡 CORRECCIÓN DE FONDOS EN MÓVILES (Parallax) */
         @media screen and (max-width: 768px) {
             .section-beneficios::before {
                 /* Desactiva el parallax (fixed) para evitar el error de renderizado en móviles */
-                background-attachment: scroll !important; 
-                
+                background-attachment: scroll !important; 
+                 
                 /* Ajusta el tamaño de la imagen de Tux para móviles */
-                background-size: 500px; 
+                background-size: 500px; 
                 background-position: center bottom; /* Centra mejor el pingüino */
             }
         }
@@ -358,10 +365,10 @@
                 Tu navegador no soporta videos HTML5.
             </video>
             <div class="content-wrapper">
-                <img src="logocuadrado.webp" alt="Logo Khipu 88" class="reveal"> 
+                <img src="logocuadrado.webp" alt="Logo Khipu 88" class="reveal"> 
                 <h1 class="reveal">¡No botes tu compu lenta! <br> ¡Dale una nueva vida!</h1>
                 <p class="reveal">Optimizamos tu compu con Linux, más rápida y segura que nunca. Además, aprende a sacarle el máximo provecho con nuestros talleres.</p>
-                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn primary reveal">💡 Quiero más información</a>
+                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn primary reveal"><i class="fab fa-whatsapp"></i> Quiero más información</a>
             </div>
         </header>
 
@@ -376,7 +383,7 @@
                         <h3>Velocidad extrema sin costo alto</h3>
                         <p>Linux es ligero y utiliza menos recursos. Al combinarlo con un **SSD o RAM** recomendado, tu PC volará sin gastar en una nueva.</p>
                     </div>
-                    <div class="card reveal-stagger"> 
+                    <div class="card reveal-stagger"> 
                         <i class="card-icon fas fa-recycle"></i>
                         <h3>Ahorro genuino y reciclaje inteligente</h3>
                         <p>Alargas la vida útil de tu hardware por años, contribuyes al planeta y ahorras dinero que puedes invertir en tu familia.</p>
@@ -388,7 +395,7 @@
                     </div>
                 </div>
                 
-                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal">💡 Quiero más información</a>
+                <a href="https://wa.me/51961468282?text=Hola%20Khipu88%20Linux%20Lab%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal"><i class="fab fa-whatsapp"></i> Quiero más información</a>
             </div>
         </section>
 
@@ -417,7 +424,7 @@
                     
                 </div>
                 
-                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal">💡 Quiero más información</a>
+                <a href="https://wa.me/51961468282?text=Hola%20Khipu88%20Linux%20Lab%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal"><i class="fab fa-whatsapp"></i> Quiero más información</a>
             </div>
         </section>
         
@@ -444,7 +451,7 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal">💡 Quiero más información</a>
+                <a href="https://wa.me/51961468282?text=Hola%20Khipu88%20Linux%20Lab%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn reveal"><i class="fab fa-whatsapp"></i> Quiero más información</a>
             </div>
         </section>
         
@@ -452,7 +459,7 @@
             <div class="content-wrapper">
                 <h2 class="reveal">🚀 El cambio es fácil cuando tienes el equipo y la formación correcta.</h2>
                 <p class="reveal">Estamos listos para ayudarte a dar el salto.</p>
-                <a href="https://wa.me/51961468282?text=Hola%20%F0%9F%AA%A2Khipu88%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn primary reveal">💡 Quiero más información</a>
+                <a href="https://wa.me/51961468282?text=Hola%20Khipu88%20Linux%20Lab%2C%20quisiera%20más%20información%20de%20sus%20servicios" class="cta-btn primary reveal"><i class="fab fa-whatsapp"></i> Quiero más información</a>
                 
                 <div class="social-icons reveal">
                     <a href="https://www.facebook.com/khipu88pe" target="_blank" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -466,7 +473,7 @@
             </footer>
         </section>
 
-    </div> 
+    </div> 
 
     <script src="https://unpkg.com/scrollreveal"></script>
 
@@ -476,9 +483,9 @@
             delay: 150,
             distance: '40px',
             easing: 'ease-in-out',
-            reset: true, 
-            duration: 500, 
-            viewFactor: 0.5 
+            reset: true, 
+            duration: 500, 
+            viewFactor: 0.5 
         };
 
         // Aplicar ScrollReveal a diferentes elementos con orígenes variados
@@ -487,51 +494,51 @@
         ScrollReveal().reveal('#inicio .reveal', { ...defaultReveal, origin: 'bottom' });
 
         // Sección SERVICIO (H2, Subtítulo, Botón)
-        ScrollReveal().reveal('#servicio h2, #servicio .subtitle, #servicio .cta-btn', { 
-            ...defaultReveal, 
-            origin: 'right', 
-            distance: '50px' 
+        ScrollReveal().reveal('#servicio h2, #servicio .subtitle, #servicio .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'right', 
+            distance: '50px' 
         });
         // Las tarjetas aparecen de abajo
         ScrollReveal().reveal('#servicio .reveal-stagger', {
             ...defaultReveal,
-            delay: 200, 
+            delay: 200, 
             interval: 150,
             origin: 'bottom'
         });
 
         // Sección TALLERES (H2, Subtítulo, Botón)
-        ScrollReveal().reveal('#talleres h2, #talleres .subtitle, #talleres .cta-btn', { 
-            ...defaultReveal, 
-            origin: 'left', 
-            distance: '50px' 
+        ScrollReveal().reveal('#talleres h2, #talleres .subtitle, #talleres .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'left', 
+            distance: '50px' 
         });
         // Las tarjetas aparecen de abajo
         ScrollReveal().reveal('#talleres .reveal-stagger', {
             ...defaultReveal,
-            delay: 200, 
+            delay: 200, 
             interval: 150,
             origin: 'bottom'
         });
 
         // Sección ¿POR QUÉ? (H2, Subtítulo, Botón)
-        ScrollReveal().reveal('#porque h2, #porque .subtitle, #porque .cta-btn', { 
-            ...defaultReveal, 
-            origin: 'top', 
-            distance: '50px' 
+        ScrollReveal().reveal('#porque h2, #porque .subtitle, #porque .cta-btn', { 
+            ...defaultReveal, 
+            origin: 'top', 
+            distance: '50px' 
         });
         // Las tarjetas aparecen de abajo
         ScrollReveal().reveal('#porque .reveal-stagger', {
             ...defaultReveal,
-            delay: 200, 
+            delay: 200, 
             interval: 150,
             origin: 'bottom'
         });
 
         // Sección CONTACTO (H2, Párrafo, Botón, Íconos Sociales)
-        ScrollReveal().reveal('#contacto .reveal', { 
-            ...defaultReveal, 
-            origin: 'bottom' 
+        ScrollReveal().reveal('#contacto .reveal', { 
+            ...defaultReveal, 
+            origin: 'bottom' 
         });
 
 
@@ -582,4 +589,5 @@
 
 </body>
 </html>
+
 
